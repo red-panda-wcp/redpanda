@@ -28,14 +28,18 @@ class HistoryAddressesController < ApplicationController
     @carts.destroy_all#カート内削除
     flash[:notice] = "ご購入ありがとうございます。発送までしばしお待ち下さい。"
 
-    redirect_to user_root_path
+    redirect_to user_path
     end
+
+
   end
 
   private
+
   def history_address_params
     params.require(:history_address).permit(:postal_code,:address,:lastname,:firstname,
                                       :kana_lastname,:kana_firstname,:phone,history_attributes:[
                                         :user_id,:item_id,:count,:order_status,:price,:history_address_id])
   end
+
 end

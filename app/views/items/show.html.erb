@@ -1,1 +1,19 @@
-<h1>Items#show</h1>
+
+<h1>商品詳細画面</h1>
+<%= @item.item_name %>
+<%= @item.price %>円
+<% @item.discs.each do |disc| %><!--アイテムに紐づいたディスクを表示する。eachでしか出せない・・・かも-->
+  <%= disc.disc_name %>
+<% end %>
+<% if @item.stock == 0 %>
+  <P>売り切れ</P>
+<% elsif user_signed_in? %>
+  残り<%= @item.stock %>個
+    <%= form_for @cart do |f| %>
+    <%= f.number_field :count ,min:1,max:@item.stock %>
+    <%= f.hidden_field :item_id, :value => @item.id %>
+    <%= f.submit "カートに入れる" %>
+    <% end %>
+<% else %>
+  残り<%= @item.stock %>個
+<% end %>

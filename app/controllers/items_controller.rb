@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_admin!, except:[:index]
+  before_action :authenticate_admin!, except:[:index,:show]
 
   def index
     @q = Item.search(params[:q])
@@ -27,6 +27,8 @@ end
   end
 
   def show
+    @item = Item.find(params[:id])
+    @cart = Cart.new
   end
 
   def edit

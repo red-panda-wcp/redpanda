@@ -9,6 +9,11 @@
 	  <%= f.submit "search",class: 'record-form__submit-button' %><br><br>
   <% end %>
 	<div class="container">
+		<% if params[:q].present? && params[:q][:artist_name_or_label_name_or_item_name_cont].present? %>
+		<div>
+			<p>検索語句：　<%= params[:q][:artist_name_or_label_name_or_item_name_cont] %></p>
+		</div>
+		<% end %>
 		<table>
 			<% @items.each do |item| %>
 			<tr>
@@ -21,7 +26,7 @@
 					<!--商品内容-->
 				<td>
 					<div>artist name:<%= item.artist_name %></div>
-					<div>cd name:<%= item.item_name %></div>
+					<div>cd name:<%= link_to "#{item.item_name}", item_path(item) %></div>
 					<div>label:<%= item.label_name %></div>
 					<div>stock:<%= item.stock %></div>
 					<div>price:￥<%= item.price %></div>
@@ -34,7 +39,5 @@
 			<% end %>
 		</table>
 	</div>
-<br><br>
-
 	<!--           こ          こ            か         ら        先はeachで表示される部分だから、実装する時は消す-->
 		<!--                こ            こ              ま              で               消               す               -->

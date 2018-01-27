@@ -1,2 +1,20 @@
 <h1>Categories#edit</h1>
 <p>Find me in app/views/categories/edit.html.erb</p>
+<h2>カテゴリー一覧</h2>
+<h1>内容変更</h1>
+<!-- form_for部分 -->
+<%= form_for @category do |f| %>
+    <h4>カテゴリー変更</h4>
+    <%= f.text_field :category_name %>
+    <%= f.submit %>
+<% end %>
+
+<h2>カテゴリー一覧</h2>
+<% @categories.each do |category| %>
+ <%= category.category_name %>
+ <%= link_to "edit", edit_category_path(category) %>
+ <%= link_to "destroy", category_path(category), method: :delete %><br>
+<% end %>
+
+<br>
+<%= link_to "一覧へ戻る", items_path %>

@@ -1,0 +1,81 @@
+<p class="cart-top"><%= current_user.email %>さんのカート内商品一覧</p><!--ここはまだ名前カラムをユーザーテーブルに作ってないのでメールで仮置きしてます-->
+<% if flash[:n] %>
+  <div class="message1"><%= flash[:n] %></div>
+<% end %>
+  <% @carts.each do |cart| %>
+    <% if current_user.id == cart.user_id %>
+    <div class="album-box2">
+      <div class="album-image2"></div><!--商品画像がここにくる-->
+        <div class="album-text">
+          Artist<%= cart.item.artist_name %><br>
+          <p class="title"><%= cart.item.item_name %></p>
+          レーベル<%= cart.item.label_name %>
+          ジャンル<%= cart.item.category_id %>
+          <br><br>
+          sample text<br>
+          sample text<br><br>
+        <div class="price-box1">
+          <!-- 商品１つあたりの金額 -->
+          <%= cart.item.price %>円<br>
+          <% if cart.item.stock == 0 %>
+            <p>売り切れ</p>
+          <% else %>
+            <div>在庫<%= cart.item.stock %>個</div>
+          <% end %>
+          <%= form_for(cart, url: cart_path(cart.id), html: {method: 'PUT'}) do |f| %><!--商品の個数を変更するフォーム-->
+            <%= f.number_field :count ,min:0,max: cart.item.stock %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :item_id, :value => cart.item.id %>
+            <%= f.submit "個数を変更" %>
+          <% end %>
+          <%= link_to "削除", cart_path(cart.id), method: :delete %><br><!--商品削除ボタン-->
+      <!-- １商品の合計金額 -->
+          小計<%= cart.item.price*cart.count %>円<br>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  <% end %>
+
+    送料：　540円<br>
+    <!-- カートの合計金額 -->
+    カート内合計金額：<%= @total_price+540 %>円<br>
+  </div>
+
+    <!-- 送り先情報 -->
+    <%= form_for :history_address,url:history_addresses_path do |f|%>
+      <div class="price-box1">
+        <div class="adress-box-left">
+          <p class="title">配送先情報</p>
+
+          <div class="border-line">
+            <span>姓（カタカナ）<%= f.text_field :kana_lastname,placeholder: "ヤマダ",class:"form_style_half form_input",value:"#{@current_user.kana_lastname}" %></span>
+            <span>名（カタカナ）<%= f.text_field :kana_firstname,placeholder: "タロウ",class:"form_style_half form_input",value:"#{@current_user.kana_firstname}" %></span>
+          </div>
+          <div class="border-line">
+            <span>姓　　　　　　<%= f.text_field :lastname,placeholder: "山田" ,class:"form_style_half form_input",value:"#{@current_user.lastname}" %></span>
+            <span>名　　　　　　<%= f.text_field :firstname,placeholder: "太郎",class:"form_style_half form_input",value:"#{@current_user.firstname}" %></span>
+          </div>
+
+          <div class="border-line">
+            <span>郵便番号　　　<%= f.text_field :postal_code,placeholder: "111-0000",class:"form_style_half form_input",value:"#{@current_user.postal_code}" %></span>
+          </div>
+
+          <div class="border-line">
+            <span>住所　　　　　<%= f.text_field :address,placeholder: "東京都渋谷区渋谷１−１−１",class:"form_style form_input",value:"#{@current_user.address}" %></span>
+          </div>
+
+          <div class="border-line">
+            <span>電話番号　　　<%= f.text_field :phone,placeholder: "000-0000-0000",class:"form_style form_input",value:"#{@current_user.phone}"%></span>
+          </div>
+
+          <div class="text-center1">
+            <%= f.submit "情報登録" %>
+          </div>
+        </div>
+        <div class="adress-box-right">
+          <%= f.submit "購入", :disable_with => '購入中...' ,class:"square_btn3",date:{confirm:"本当に購入しますか"}%>
+        </div>
+    <% end %>
+   <br><br>
+</div>

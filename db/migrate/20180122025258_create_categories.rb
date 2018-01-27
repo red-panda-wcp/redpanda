@@ -5,4 +5,5 @@
 
         t.timestamps
       end
+    end
 end

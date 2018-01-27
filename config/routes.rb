@@ -16,13 +16,12 @@ Rails.application.routes.draw do
   resources :carts
   resources :history_address
   resources :admin_users, only:[:index]
+  resources :categories,only: [:new, :create, :index, :update, :edit, :destroy]
 
   resources :items,only: [:new, :create, :index, :show, :update, :edit, :destroy] do
     resources :discs
     resources :songs
 
-    resources :categories,only: [:new, :create, :index, :update, :edit, :destroy] do
-    end
 
   end
   root "items#index"

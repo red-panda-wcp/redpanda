@@ -28,7 +28,7 @@
     </div>
   </div>
   <!--カテゴリー登録-->
-      カテゴリー　　　<%= f.collection_select :category_id, Category.all, :id, :name %>
+      カテゴリー　　　<%= f.collection_select :category_id, Category.all, :id, :category_name %>
   <div class="row">
     <div class="col-sm-12">
       レーベル　　　　<%= f.text_field :label_name, class:"form-control", rows:"3" %>

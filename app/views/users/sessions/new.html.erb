@@ -1,9 +1,12 @@
 <div class="form_base_signin">
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form_signin">
       <h1 class="form_name">ログイン</h1>
       <div class="form_body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="devise_errors">
+          <%= devise_error_messages! %>
+        </div>
         <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレス" ,class: "form_style form_input" %><br>
         <%= f.password_field :password, autocomplete: "off",placeholder: "パスワード",class: "form_style form_input" %><br>
         <% if devise_mapping.rememberable? -%>
@@ -20,6 +23,6 @@
   <% end %>
 
   <div class="devise_link">
-      <%= render "devise/shared/links" %>
+      <%= render "users/shared/links" %>
   </div>
 </div>

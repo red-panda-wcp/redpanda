@@ -3,11 +3,11 @@
 	<%=link_to("カテゴリー編集",categories_path)%>
 <% end %>
 <!--検索フォーム-->
-商品検索
+<!-- 	商品検索
 　<%= search_form_for @q,url: items_path do |f| %>
 	  <%= f.search_field :artist_name_or_label_name_or_item_name_cont %>
 	  <%= f.submit "search",class: 'record-form__submit-button' %><br><br>
-  <% end %>
+  <% end %> -->
 	<div class="container">
 		<% if params[:q].present? && params[:q][:artist_name_or_label_name_or_item_name_cont].present? %>
 		<div>

@@ -3,37 +3,46 @@
   <head>
     <title>Redpanda</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta http-equiv="content-language" content="ja">
   </head>
   <body>
+
    <header>
     <% if admin_signed_in? #アドミンでログインしている場合のCSS設定%>
-    <div class="applicaion-header-admins">
+    <div class="applicaion-header-admins clearfix">
     <% else #アドミンでログインしていない場合のCSS設定 %>
-    <div class="applicaion-header-users">
+    <div class="applicaion-header-users clearfix">
     <% end %>
-    <div class="applicaion-header-search">
-      <%= link_to 'REDPANDA',items_path %>　ヘッダー共通部分このへん
-    </div>
-      <ul>
-        <% if admin_signed_in? %>
-          <li><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %></li>
-          <li><%= link_to '投稿フォーム', new_item_path %></li>
-        <% elsif user_signed_in? %>
-          <li>ログイン中のユーザー：<%= link_to "#{current_user.lastname} #{current_user.firstname}",user_path(current_user) %> (id:<%= current_user.id %>) </li>
-          <li><%= link_to 'カート', carts_path %></li>
-          <li><%= link_to 'ログアウト',destroy_user_session_path,method: :delete%></li>
-        <% else %>
-          <li><%= link_to 'ログイン',new_user_session_path %></li>
-          <li><%= link_to 'ユーザー登録',new_user_registration_path %></li>
-          <li><%= link_to "管理者ログイン あとで消す", new_admin_session_path %> admin@admin.com(adminadmin)</li>
-          <li><%= link_to "管理者ユーザー作成 あとで消す", new_admin_registration_path %></li>
+      <div class="header-logo">
+        <%= link_to 'REDPANDA',items_path %>
+      </div>
+      <div class="header-search">
+        <%= search_form_for @q,url: items_path do |f| %>
+          <%= f.search_field :artist_name_or_label_name_or_item_name_cont,class:"search_form" %>
+          <%= f.submit "search",class: 'record-form__submit-button' %><br><br>
         <% end %>
-      </ul>
+      </div>
+      <div class="header-menu">
+        <ul>
+          <% if admin_signed_in? %>
+            <li><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <li><%= link_to '投稿フォーム', new_item_path %></li>
+            <li><%= link_to '管理者用ページ',  admin_users_path %></li>
+          <% elsif user_signed_in? %>
+            <li>ログイン中のユーザー：<%= link_to "#{current_user.lastname} #{current_user.firstname}",user_path %> (id:<%= current_user.id %>) </li>
+            <li><%= link_to 'カート', carts_path %></li>
+            <li><%= link_to 'ログアウト',destroy_user_session_path,method: :delete%></li>
+          <% else %>
+            <li><%= link_to 'ログイン',new_user_session_path %></li>
+            <li><%= link_to 'ユーザー登録',new_user_registration_path %></li>
+            <li><%= link_to "管理者ログイン あとで消す", new_admin_session_path %> admin@admin.com(adminadmin)</li>
+            <li><%= link_to "管理者ユーザー作成 あとで消す", new_admin_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
    </header>
 
@@ -47,7 +56,8 @@
        <%= flash[:alert] %>
      </div>
    <% end %>
+   <div class="container_all">
     <%= yield %>
-
+  </div>
   </body>
 </html>

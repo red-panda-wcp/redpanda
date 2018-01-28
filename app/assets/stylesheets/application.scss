@@ -19,17 +19,71 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 /*=========================application.html.erb=========================*/
 header {
   width: 100%;
   height: 100px;
 }
 
+header ul{
+  list-style: none;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .applicaion-header-admins {
   background-color: #000;
   color: #fff;
+  height: 100px;
+  padding: 20px;
 }
+
+  .applicaion-header-admins a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .applicaion-header-admins a:hover {
+    color: gray;
+    text-decoration: none;
+  }
 
 .applicaion-header-users {
   background-color: #D2691E;
+  padding: 20px;
+  height: 100px;
+}
+
+.header-logo {
+  float: left;
+  font-size: 50px;
+  font-family: impact;
+  margin: 0 30px;
+}
+
+.header-search {
+  float: left;
+}
+
+.header-menu {
+  float: right;
+  margin: 0 30px;
+}
+
+.container_all {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+h1 {
+  padding-bottom: 30px;
 }

@@ -1,19 +1,42 @@
 
-<h1>商品詳細画面</h1>
-<%= @item.item_name %>
-<%= @item.price %>円
+<div class="album-box">
+　<!--　CDジャケット画像  -->
+   <%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "noimage_panda1.jpg",class:"album-image" %>
+	<!--　CD情報　 -->
+	<div class="album-text"><%= @item.artist_name %><br><br>
+	<p class="title"><%= @item.item_name %></p><br>
+	レーベル　ジャンル<br><br>
+	価格：　<%= @item.price %>円<br>
+	在庫：　<% if @item.stock == 0 %>
+          <span>売り切れ</span>
+
+        <% elsif user_signed_in? %>
+          <span>残り<%= @item.stock %>個</span>
+<!-- 数量フォーム -->
+          <%= form_for @cart do |f| %>
+            <%= f.number_field :count ,min:1,max:@item.stock, value:"1" %>
+            <%= f.hidden_field :item_id, :value => @item.id %>
+          <%= f.submit "購入" ,class:"square_btn1"%>
+          <% end %>
+        <% elsif admin_signed_in? %>
+          <span>残り<%= @item.stock %>個</span><br>
+          <%= link_to '変更', edit_item_path(@item), class:"square_btn2" %>
+
+         <% else %>
+          <span>残り<%= @item.stock %>個</span>
+         <% end %>
+ </div>
+</div>
+
+<!-- disc番号＆曲名一覧 -->
 <% @item.discs.each do |disc| %><!--アイテムに紐づいたディスクを表示する。eachでしか出せない・・・かも-->
-  <%= disc.disc_name %>
-<% end %>
-<% if @item.stock == 0 %>
-  <P>売り切れ</P>
-<% elsif user_signed_in? %>
-  残り<%= @item.stock %>個
-    <%= form_for @cart do |f| %>
-    <%= f.number_field :count ,min:1,max:@item.stock %>
-    <%= f.hidden_field :item_id, :value => @item.id %>
-    <%= f.submit "カートに入れる" %>
-    <% end %>
-<% else %>
-  残り<%= @item.stock %>個
+
+<div class="disk-box">
+  <p class="title"><%= disc.disc_name %></p>
+  <br>
+
+  <% disc.songs.each do |song| %>
+  <p class="disk-text"><%= song.number%>. <%= song.song_name%></p>
+  <% end %>
+</div>
 <% end %>

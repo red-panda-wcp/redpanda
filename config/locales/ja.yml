@@ -43,6 +43,7 @@ ja:
   enums:
     history:
       order_status:
-        preparation: 準備中
+        in_ordered: 受付中
+        preparation: 配送準備中
         in_delivery: 配送中
         finish: 配送完了

@@ -2,16 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //================================mypage================================
-.link{
-  padding: 25px 50px;
-  color: #81BEF7;
-}
-
 .user-box{
-  width: 800px;
-  margin: 60px 90px;
   font-size: 25px;
-
+  margin: 50px;
 }
 
 .user_logo {
@@ -32,10 +25,6 @@
   padding-bottom: 10px;
 }
 
-.botton1{
-float: right;
-}
-
 .history-box{
   width: 800px;
   margin: 120px;
@@ -46,7 +35,7 @@ float: right;
   font-size: 15px;
 }
 
-.adress-text{
+.address-text{
   padding:20px 0;
 }
 
@@ -103,6 +92,17 @@ float: right;
 }
 
 
+.item-logo {
+    background: #caa28e;
+    font-size: 12px;
+    color: #fff;
+    display: inline-block;
+    padding: 0 10px;
+    height: 20px;
+    border-radius: 3px;
+    text-align: center;
+}
+
 .album-image{
   width: 300px;
   height: 300px;
@@ -137,17 +137,6 @@ float: right;
 
 .price-box1{
     margin: 90px;
-    width: 70%;
-}
-
-.price-box2{
-  width: 800px;
-  text-align: right;
-  padding-right: 90px;
-}
-.address-box{
-  margin-left: 90px;
-  width: 800px;
 }
 
 .adress-box-left{
@@ -155,7 +144,7 @@ float: right;
 }
 
 .adress-box-right{
-  margin-top: 180px;
+  margin-top: 200px;
   float: right;
 }
 
@@ -207,7 +196,10 @@ textarea {
   }
   */
 
-
+.order_status_style {
+  font-size: 12px;
+  color: #389482;
+}
 
 //===========================devise_common===========================
 .devise_errors {
@@ -333,3 +325,16 @@ textarea {
     padding: 30px;
 }
 
+// ==============================password==============================
+.form_password {
+    height: auto;
+}
+
+.form_note {
+    font-size: 14px;
+    padding: 40px 0 10px;
+}
+
+.btn_password {
+    margin-bottom: 50px;
+}

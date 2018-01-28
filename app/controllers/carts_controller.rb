@@ -4,9 +4,11 @@ class CartsController < ApplicationController
     @history_address = HistoryAddress.new
 
     @total_price = 0#合計金額を表示するための記述
-    @carts.each do |cart|
-      if current_user.id == cart.user_id
-         @total_price += cart.item.price*cart.count
+    if @carts.presence == true
+      @carts.each do |cart|
+        if current_user.id == cart.user_id
+           @total_price += cart.item.price*cart.count
+        end
       end
     end
   end

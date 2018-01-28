@@ -10,7 +10,13 @@
 <% @categories.each do |category| %>
  <%= category.category_name %>
  <%= link_to "edit", edit_category_path(category) %>
- <%= link_to "destroy", category_path(category), method: :delete %><br>
+
+  <% if category.items.presence != nil %>
+    利用アイテムあり。削除不可 <br>
+    <% else %>
+   <%= link_to "destroy", category_path(category), method: :delete %><br>
+   <% end %>
+
 <% end %>
 
 <br>

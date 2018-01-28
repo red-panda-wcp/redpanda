@@ -21,8 +21,8 @@
            <span class="p-country-name" style="display:none;">Japan</span>
           <%= f.text_field :postal_code, placeholder:"郵便番号",class:"form_style form_input p-postal-code",maxlength:"8",onKeyup:"this.value=this.value.replace(/[^0-9]+/,'')"%>
           <br>
-          <%= f.text_field :address, placeholder:"住所",class:"form_style form_input p-region p-locality p-street-address p-extended-address" %>
-          <br>
+          <%= f.text_field :address, placeholder:"住所",class:"form_style form_input p-region p-locality p-street-address p-extended-address" %><br>
+          <%= f.text_field :address2, placeholder:"建物　部屋番号",class:"form_style form_input" %><br>
         </div>
     <!-- 住所自動設定ツール参考：https://github.com/yubinbango/yubinbango -->
         <%= f.telephone_field :phone, placeholder:"電話番号",class:"form_style form_input",onKeyup:"this.value=this.value.replace(/[^0-9]+/,'')" %><br>

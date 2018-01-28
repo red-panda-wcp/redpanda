@@ -44,7 +44,7 @@
     margin-left: 15px;
     padding: 12px 40px;
     text-decoration: none;
-    background: #FF8000;/*ボタン色*/
+    background: #D2691E;/*ボタン色*/
     color: #FFF;
     border-bottom: solid 4px #627295;
     border-radius: 3px;
@@ -67,7 +67,7 @@
     margin-bottom: 30px;
     padding: 40px 40px;
     text-decoration: none;
-    background: #FF8000;/*ボタン色*/
+    background: #D2691E;/*ボタン色*/
     color: #FFF;
     border-bottom: solid 4px #627295;
     border-radius: 3px;
@@ -106,7 +106,6 @@
 .album-image{
   width: 300px;
   height: 300px;
-  float: left;
 }
 .album-image2{
   margin:0 90px;
@@ -119,24 +118,39 @@
   margin: 90px;
   overflow: hidden;
 }
+
+.album-image-box {
+    padding-right: 30px;
+    float: left;
+}
+
 .album-box2{
   width: 800px;
-  margin: 30px 90px;
+  margin: 30px 0;
   overflow: hidden;
-  padding-bottom: 30px;
+  padding: 30px 0;
   border-bottom: medium solid #D8D8D8;
 }
 .album-text{
   float: left;
-  padding-left: 20px;
 }
+
+.total-price-box {
+  padding-left: 360px;
+}
+
+.ad-form-label {
+    width: 150px;
+    padding: 0 10px;
+    display: inline-block;}
+
 .disk-box{
   margin-left: 180px;
   margin-bottom: 30px;
 }
 
 .price-box1{
-    margin: 90px;
+    margin: 90px 30px;
 }
 
 .adress-box-left{

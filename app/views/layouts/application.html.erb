@@ -5,17 +5,14 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta http-equiv="content-language" content="ja">
   </head>
   <body>
 
    <header>
-    <% if admin_signed_in? #アドミンでログインしている場合のCSS設定%>
-    <div class="applicaion-header-admins clearfix">
-    <% else #アドミンでログインしていない場合のCSS設定 %>
-    <div class="applicaion-header-users clearfix">
-    <% end %>
+    <div class="<%= "#{@add_class}"%>-header clearfix">
       <div class="header-logo">
         <%= link_to 'REDPANDA',items_path %>
       </div>
@@ -58,6 +55,10 @@
    <% end %>
    <div class="container_all">
     <%= yield %>
+
   </div>
+  <footer class="<%= "#{@add_class}-footer"%>">
+      redpanda.com
+  </footer>
   </body>
 </html>

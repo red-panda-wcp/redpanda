@@ -7,6 +7,7 @@
     <span class="user_logo">メールアドレス</span> 　<%= @user.email %><br>
     <span class="user_logo">郵便番号</span> 　<%= @user.postal_code %><br>
     <span class="user_logo">住所</span> 　<%= @user.address %><br>
+    <span class="user_logo">建物名</span> 　<%= @user.address2 %><br>
     <span class="user_logo">電話番号</span> 　<%= @user.phone %><br>
 <!-- プロフィール編集&削除ボタン -->
     <%= link_to "削除", users_destroy_path,method: :delete ,class: "square_btn2",data: { :confirm => "ユーザーを削除しますか？\n削除すると戻せませんのでご注意ください。"}%>
@@ -34,7 +35,7 @@
                 <p>購入日：<%= h_history_first.created_at.strftime('%Y/%m/%d %H:%M')  %>　<span class="<%= "#{h_history_first.order_status}_style"%> order_status_style"><%= h_history_first.order_status_i18n%></span></p>
                   <div class="address-text">
                     【送付先情報】<br>
-                    <p><%= h_history_first.history_address.postal_code%>  <%= h_history_first.history_address.address %></p>
+                    <p><%= h_history_first.history_address.postal_code%> <%= h_history_first.history_address.address %> <%= h_history_first.history_address.address2 %></p>
                       名前 : <%= h_history_first.history_address.lastname%>  <%= h_history_first.history_address.firstname%>   (電話番号 : <%= h_history_first.history_address.phone%>) <br>
                   </div>
 
@@ -53,7 +54,7 @@
                       <tr>
                         <td><%= h_h_item.item.item_name %></td>
                         <td><%= h_h_item.item.artist_name %></td>
-                        <td><%= h_h_item.price %></td>
+                        <td><%= number_to_currency(h_h_item.price, unit: "¥", precision:0) %></td>
                         <td> ×<%= h_h_item.count%> =</td>
                         <td><%= h_total_price = h_h_item.price * h_h_item.count %></td>
                       </tr>

@@ -4,11 +4,9 @@ class CartsController < ApplicationController
     @history_address = HistoryAddress.new
 
     @total_price = 0#合計金額を表示するための記述
-    if @carts.presence == true
       @carts.each do |cart|
-        if current_user.id == cart.user_id
-           @total_price += cart.item.price*cart.count
-        end
+      if current_user.id == cart.user_id
+         @total_price += cart.item.price*cart.count
       end
     end
   end
@@ -16,7 +14,7 @@ class CartsController < ApplicationController
   def create#カートインデックスに商品追加
     @cart = Cart.new(cart_params)
     @cart.user_id = current_user.id
-    if Cart.find_by(item_id: @cart.item_id)
+    if Cart.find_by(item_id: @cart.item_id,user_id:current_user.id)
        redirect_to carts_path, flash: {n: "この商品は既にカートに入っています"}
     else
       @cart.save

@@ -29,7 +29,7 @@
 					<div>cd name:<%= link_to "#{item.item_name}", item_path(item) %></div>
 					<div>label:<%= item.label_name %></div>
 					<div>stock:<%= item.stock %></div>
-					<div>price:￥<%= item.price %></div>
+					<div>price:<%= number_to_currency(item.price, :unit => "¥", :precision => 0) %></div>
 					<% if admin_signed_in? %>
 						<%=link_to("編集する","/items/#{item.id}/edit")%><br>
 						<%=link_to "削除する", item_path(item.id), method: :delete, "data-confirm" => '削除してよろしいですか？' %><br>

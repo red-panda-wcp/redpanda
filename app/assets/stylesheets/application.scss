@@ -23,6 +23,10 @@ a {
   text-decoration: none;
 }
 
+.fa_icon{
+  padding-right:10px;
+}
+
 /*=========================application.html.erb=========================*/
 header {
   width: 100%;
@@ -39,27 +43,45 @@ header ul{
   clear: both;
 }
 
-.applicaion-header-admins {
+.applicaion-admins-header {
   background-color: #000;
   color: #fff;
   height: 100px;
   padding: 20px;
 }
 
-  .applicaion-header-admins a {
+  .applicaion-admins-header a {
     color: #fff;
     text-decoration: none;
   }
 
-  .applicaion-header-admins a:hover {
+  .applicaion-admins-header a:hover {
     color: gray;
     text-decoration: none;
   }
 
-.applicaion-header-users {
+.applicaion-admins-footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  height: 30px;
+  font-size: 10px;
+  line-height: 30px;
+}
+
+
+.applicaion-users-header {
   background-color: #D2691E;
   padding: 20px;
   height: 100px;
+}
+
+.applicaion-users-footer {
+  background-color: #D2691E;
+  text-align: center;
+  height: 30px;
+  font-size: 10px;
+  line-height: 30px;
 }
 
 .header-logo {
@@ -81,7 +103,7 @@ header ul{
 .container_all {
   width: 80%;
   margin: 0 auto;
-  padding-top: 50px;
+  padding: 50px 0;
 }
 
 h1 {

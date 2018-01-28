@@ -1,12 +1,15 @@
 
 <div class="album-box">
 　<!--　CDジャケット画像  -->
-   <%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "noimage_panda1.jpg",class:"album-image" %>
+  <div class="album-image-box">
+    <%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "noimage_panda1.jpg",class:"album-image" %>
+  </div>
 	<!--　CD情報　 -->
-	<div class="album-text"><%= @item.artist_name %><br><br>
-	<p class="title"><%= @item.item_name %></p><br>
-	レーベル　ジャンル<br><br>
-	価格：　<%= @item.price %>円<br>
+	<div class="album-text"><%= @item.artist_name %><br>
+	<p class="title"><%= @item.item_name %></p>
+	<span class="item-logo"><%= @item.label_name %></span>  <span class="item-logo"><%= @item.category.category_name%></span><br><br>
+  発売日：　<%= @item.release_date %><br>
+	価格：　<%= number_to_currency(@item.price, :unit => "¥", :precision => 0) %>円<br>
 	在庫：　<% if @item.stock == 0 %>
           <span>売り切れ</span>
 
@@ -16,7 +19,7 @@
           <%= form_for @cart do |f| %>
             <%= f.number_field :count ,min:1,max:@item.stock, value:"1" %>
             <%= f.hidden_field :item_id, :value => @item.id %>
-          <%= f.submit "購入" ,class:"square_btn1"%>
+          <%= f.submit "カートに入れる" ,class:"square_btn1"%>
           <% end %>
         <% elsif admin_signed_in? %>
           <span>残り<%= @item.stock %>個</span><br>

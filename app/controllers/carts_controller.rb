@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   def index
     @carts = Cart.all
     @history_address = HistoryAddress.new
-
+    @price = 540
     @total_price = 0#合計金額を表示するための記述
       @carts.each do |cart|
       if current_user.id == cart.user_id

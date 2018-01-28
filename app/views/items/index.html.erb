@@ -2,12 +2,6 @@
 <% if admin_signed_in? %>
 	<%=link_to("カテゴリー編集",categories_path)%>
 <% end %>
-<!--検索フォーム-->
-<!-- 	商品検索
-　<%= search_form_for @q,url: items_path do |f| %>
-	  <%= f.search_field :artist_name_or_label_name_or_item_name_cont %>
-	  <%= f.submit "search",class: 'record-form__submit-button' %><br><br>
-  <% end %> -->
 	<div class="container">
 		<% if params[:q].present? && params[:q][:artist_name_or_label_name_or_item_name_cont].present? %>
 		<div>
@@ -18,10 +12,8 @@
 			<% @items.each do |item| %>
 			<tr>
 				<td>
-					<div class="item_image">
 					<!--画像画面左　登録がない場合noimageを表示-->
 					<%= attachment_image_tag item, :image, :fill, 150, 150, format: 'jpeg', fallback: "noimage_panda1.jpg",class:"item_image" %>
-					</div>
 				</td>
 					<!--商品内容-->
 				<td>
@@ -38,6 +30,7 @@
 						<%=link_to("編集する","/items/#{item.id}/edit")%><br>
 						<%=link_to "削除する", item_path(item.id), method: :delete, "data-confirm" => '削除してよろしいですか？' %><br>
 					<% end %>
+					</div>
 				</td>
 			</tr>
 			<% end %>

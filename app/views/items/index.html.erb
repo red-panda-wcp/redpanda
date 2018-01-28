@@ -28,7 +28,11 @@
 					<div>artist name:<%= item.artist_name %></div>
 					<div>cd name:<%= link_to "#{item.item_name}", item_path(item) %></div>
 					<div>label:<%= item.label_name %></div>
-					<div>stock:<%= item.stock %></div>
+					<div>stock:<% if item.stock == 0 %>
+                      <span>売り切れ</span>
+                    <% else %>
+                      <span>(在庫<%= item.stock %>個)</span>
+                    <% end %></div>
 					<div>price:<%= number_to_currency(item.price, :unit => "¥", :precision => 0) %></div>
 					<% if admin_signed_in? %>
 						<%=link_to("編集する","/items/#{item.id}/edit")%><br>
@@ -39,5 +43,3 @@
 			<% end %>
 		</table>
 	</div>
-	<!--           こ          こ            か         ら        先はeachで表示される部分だから、実装する時は消す-->
-		<!--                こ            こ              ま              で               消               す               -->

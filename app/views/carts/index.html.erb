@@ -1,5 +1,5 @@
 <div>
-  <p class="cart-top title"><i class="fa fa-shopping-cart fa_icon"></i> <%= "#{current_user.lastname} #{current_user.firstname}" %>さんのカート内商品一覧</p><!--ここはまだ名前カラムをユーザーテーブルに作ってないのでメールで仮置きしてます-->
+  <p class="cart-top title"><i class="fa fa-shopping-cart fa_icon"></i><%= "#{current_user.lastname} #{current_user.firstname}" %>さんのカート内商品一覧</p><!--ここはまだ名前カラムをユーザーテーブルに作ってないのでメールで仮置きしてます-->
 
   <% if flash[:n] %>
     <div class="message1"><%= flash[:n] %></div>
@@ -35,7 +35,7 @@
                       <%= f.hidden_field :user_id, :value => current_user.id %>
                       <%= f.hidden_field :item_id, :value => cart.item.id %>
                       <%= f.submit "個数を変更" %>
-                      <%= link_to "削除", cart_path(cart.id), method: :delete %><br><!--商品削除ボタン-->
+                      <button><%= link_to "　削除　", cart_path(cart.id), method: :delete %></button><br><!--商品削除ボタン-->
                     <% end %>
                 <!-- １商品の合計金額 -->
                     小計: <%= number_to_currency(cart.item.price*cart.count, unit: "¥", precision:0) %>円<br>
@@ -47,9 +47,14 @@
 
 </div>
   <div class="total-price-box">
-      送料：　540円<br>
+     <% if @total_price <= 3000 %>
+        <p>送料：<%= @price %>円</p>
+        カート内合計金額：<%= number_to_currency(@total_price+@price, unit: "¥", precision:0) %>円<br>
+     <% else %>
+        <p>送料：無料</p>
+        カート内合計金額：<%= number_to_currency(@total_price, unit: "¥", precision:0) %>円<br>
+     <% end %>
       <!-- カートの合計金額 -->
-      カート内合計金額：<%= number_to_currency(@total_price+540, unit: "¥", precision:0) %>円<br>
   </div>
     </div>
   <% end %>

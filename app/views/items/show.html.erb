@@ -7,7 +7,7 @@
 	<!--　CD情報　 -->
 	<div class="album-text"><%= @item.artist_name %><br>
 	<p class="title"><%= @item.item_name %></p>
-	<span class="item-logo"><%= @item.label_name %></span>  <span class="item-logo"><%= @item.category.category_name%></span><br><br>
+	<span class="item-logo">レーベル <%= @item.label_name %></span>  <span class="item-logo">ジャンル <%= @item.category.category_name%></span><br><br>
   発売日：　<%= @item.release_date %><br>
 	価格：　<%= number_to_currency(@item.price, :unit => "¥", :precision => 0) %>円<br>
 	在庫：　<% if @item.stock == 0 %>

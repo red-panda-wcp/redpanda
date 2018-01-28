@@ -4,7 +4,7 @@ class Item < ApplicationRecord
 	has_many :discs, dependent: :destroy
 	has_many :histories
 	has_many :carts
-	#belongs_to :category
+	belongs_to :category
 
 	attr_accessor :disc_name, :number, :song_name
 

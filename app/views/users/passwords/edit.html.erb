@@ -1,25 +1,25 @@
-<h2>Change your password</h2>
+<div class="form_base_signin form_base_password">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+    <div class="form_signin form_password">
+      <h1 class="form_name">パスワードを忘れた方へ</h1>
+      <div class="form_body">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <div class="devise_errors">
+          <%= devise_error_messages! %>
+        </div>
+        <% if @minimum_password_length #文字数制限がある場合の表示%>
+        <% @minimum_password_notice = "(#{@minimum_password_length}文字以内)" %>
+        <% end %>
+         <%= f.password_field :password, autocomplete: "off",placeholder:"パスワード#{@minimum_password_notice}",class:"form_style form_input" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off",placeholder:"パスワード（確認）",class:"form_style form_input" %>
+        <div class="actions">
+          <%= f.submit "パスワードの変更",class: "btn btn_password" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+  <div class="devise_link">
+    <%= render "users/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

@@ -1,10 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_admin!, except:[:index]
+  before_action :authenticate_admin!, except:[:index,:show]
 
   def index
     @q = Item.search(params[:q])
-    # @items = @q.result(distinct: true)
-    @items = Item.all
+    @items = @q.result(distinct: true) || Item.all
     # Rails.logger.info(@items.first.category_id)
   end
 
@@ -12,9 +11,9 @@ class ItemsController < ApplicationController
   	@item = Item.new
       # @disc = @item.discs.build
       # n.times{@disc.songs.build}
-[1,1].each do |f|
-  @disc = @item.discs.build
-  f.times{@disc.songs.build}
+    [1,1].each do |f|
+      @disc = @item.discs.build
+      f.times{@disc.songs.build}
 end
   end
 
@@ -28,6 +27,8 @@ end
   end
 
   def show
+    @item = Item.find(params[:id])
+    @cart = Cart.new
   end
 
   def edit

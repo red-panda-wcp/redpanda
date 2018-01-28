@@ -1,16 +1,7 @@
 <!-- <form> -->
 <!--親要素 -->
 <%= form_for(@item) do |f| %>
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @item.errors.count %>件のエラーが発生しました。</h2>
-      <ul>
-      <% @item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+   
   <h2>商品登録</h2><br>
   <div class="row">
     <div class="col-sm-6">
@@ -28,7 +19,7 @@
     </div>
   </div>
   <!--カテゴリー登録-->
-      カテゴリー　　　<%= f.collection_select :category_id, Category.all, :id, :name %>
+      カテゴリー　　　<%= f.collection_select :category_id, Category.all, :id, :category_name %>
   <div class="row">
     <div class="col-sm-12">
       レーベル　　　　<%= f.text_field :label_name, class:"form-control", rows:"3" %>
@@ -50,24 +41,22 @@
       在庫数　　　　　<%= f.text_field :stock, class:"form-control", rows:"3" %>
     </div>
   </div>
-     <div class="row">
+  <div class="row">
     <div class="col-sm-12">
-      リリース日　　　<%= f.text_field :release_date, class:"form-control", rows:"3" %>
+      リリース日　　　<%= f.date_field :release_date, class:"form-control", rows:"3" %>
     </div>
   </div>
     <!--子要素 -->
 
     <%= f.fields_for :discs do |d|%>
-        <%# @item.discs.each do |f| %>
     ディスク番号　　<%= d.text_field :disc_name %><br>
       <!--孫要素 -->
       <%= d.fields_for :songs do |s|%>
       　　　　曲名　　<%= s.text_field :number, :size=>"5",:placeholder=> "曲順" %> <%= s.text_field :song_name,:placeholder=> "曲名" %><br>
       <% end %>
-     <%# end%>
     <% end %>
   <hr>
   <%= f.submit "変更する", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
   <%= link_to"一覧に戻る", "/" %>
 <% end %>
-<!-- </form> 
+<!-- </form> -->

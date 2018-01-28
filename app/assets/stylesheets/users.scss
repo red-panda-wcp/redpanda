@@ -2,16 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //================================mypage================================
-.link{
-  padding: 25px 50px;
-  color: #81BEF7;
-}
-
 .user-box{
-  width: 800px;
-  margin: 60px 90px;
   font-size: 25px;
-
+  margin: 50px;
 }
 
 .user_logo {
@@ -32,10 +25,6 @@
   padding-bottom: 10px;
 }
 
-.botton1{
-float: right;
-}
-
 .history-box{
   width: 800px;
   margin: 120px;
@@ -46,7 +35,7 @@ float: right;
   font-size: 15px;
 }
 
-.adress-text{
+.address-text{
   padding:20px 0;
 }
 
@@ -55,7 +44,7 @@ float: right;
     margin-left: 15px;
     padding: 12px 40px;
     text-decoration: none;
-    background: #FF8000;/*ボタン色*/
+    background: #D2691E;/*ボタン色*/
     color: #FFF;
     border-bottom: solid 4px #627295;
     border-radius: 3px;
@@ -78,7 +67,7 @@ float: right;
     margin-bottom: 30px;
     padding: 40px 40px;
     text-decoration: none;
-    background: #FF8000;/*ボタン色*/
+    background: #D2691E;/*ボタン色*/
     color: #FFF;
     border-bottom: solid 4px #627295;
     border-radius: 3px;
@@ -103,10 +92,20 @@ float: right;
 }
 
 
+.item-logo {
+    background: #caa28e;
+    font-size: 12px;
+    color: #fff;
+    display: inline-block;
+    padding: 0 10px;
+    height: 20px;
+    border-radius: 3px;
+    text-align: center;
+}
+
 .album-image{
   width: 300px;
   height: 300px;
-  float: left;
 }
 .album-image2{
   margin:0 90px;
@@ -119,35 +118,39 @@ float: right;
   margin: 90px;
   overflow: hidden;
 }
+
+.album-image-box {
+    padding-right: 30px;
+    float: left;
+}
+
 .album-box2{
   width: 800px;
-  margin: 30px 90px;
+  margin: 30px 0;
   overflow: hidden;
-  padding-bottom: 30px;
+  padding: 30px 0;
   border-bottom: medium solid #D8D8D8;
 }
 .album-text{
   float: left;
-  padding-left: 20px;
 }
+
+.total-price-box {
+  padding-left: 360px;
+}
+
+.ad-form-label {
+    width: 150px;
+    padding: 0 10px;
+    display: inline-block;}
+
 .disk-box{
   margin-left: 180px;
   margin-bottom: 30px;
 }
 
 .price-box1{
-    margin: 90px;
-    width: 70%;
-}
-
-.price-box2{
-  width: 800px;
-  text-align: right;
-  padding-right: 90px;
-}
-.address-box{
-  margin-left: 90px;
-  width: 800px;
+    margin: 90px 30px;
 }
 
 .adress-box-left{
@@ -155,7 +158,7 @@ float: right;
 }
 
 .adress-box-right{
-  margin-top: 180px;
+  margin-top: 200px;
   float: right;
 }
 
@@ -207,7 +210,10 @@ textarea {
   }
   */
 
-
+.order_status_style {
+  font-size: 12px;
+  color: #389482;
+}
 
 //===========================devise_common===========================
 .devise_errors {
@@ -333,3 +339,16 @@ textarea {
     padding: 30px;
 }
 
+// ==============================password==============================
+.form_password {
+    height: auto;
+}
+
+.form_note {
+    font-size: 14px;
+    padding: 40px 0 10px;
+}
+
+.btn_password {
+    margin-bottom: 50px;
+}

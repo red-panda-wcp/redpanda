@@ -2,13 +2,16 @@
 <% if admin_signed_in? %>
 	<%=link_to("カテゴリー編集",categories_path)%>
 <% end %>
+
 	<div class="container">
 		<% if params[:q].present? && params[:q][:artist_name_or_label_name_or_item_name_cont].present? %>
 		<div>
 			<p>検索語句：　<%= params[:q][:artist_name_or_label_name_or_item_name_cont] %></p>
 		</div>
 		<% end %>
-		<table>
+
+		<table class="item_index_box">
+
 			<% @items.each do |item| %>
 			<tr>
 				<td>
@@ -16,23 +19,27 @@
 					<%= attachment_image_tag item, :image, :fill, 150, 150, format: 'jpeg', fallback: "noimage_panda1.jpg",class:"item_image" %>
 				</td>
 					<!--商品内容-->
-				<td>
-					<div>artist name:<%= item.artist_name %></div>
-					<div>cd name:<%= link_to "#{item.item_name}", item_path(item) %></div>
-					<div>label:<%= item.label_name %></div>
-					<div>stock:<% if item.stock == 0 %>
+				<td class="item_index_box_detail">
+					<p><%= item.artist_name %></p>
+					<p><h3><%= link_to "#{item.item_name}", item_path(item) %></h3></p>
+					<p><%= item.label_name %></p>
+					<p><%= number_to_currency(item.price, :unit => "¥", :precision => 0) %>
+					<% if item.stock == 0 %>
                       <span>売り切れ</span>
                     <% else %>
-                      <span>(在庫<%= item.stock %>個)</span>
-                    <% end %></div>
-					<div>price:<%= number_to_currency(item.price, :unit => "¥", :precision => 0) %></div>
-					<% if admin_signed_in? %>
-						<%=link_to("編集する","/items/#{item.id}/edit")%><br>
-						<%=link_to "削除する", item_path(item.id), method: :delete, "data-confirm" => '削除してよろしいですか？' %><br>
-					<% end %>
+                      <span>(在庫: <%= item.stock %>個)</span>
+                    <% end %>
+					</p>
+					<td>
+						<% if admin_signed_in? %>
+							<%=link_to("編集する","/items/#{item.id}/edit")%><br>
+							<%=link_to "削除する", item_path(item.id), method: :delete, "data-confirm" => '削除してよろしいですか？' %><br>
+						<% end %>
+					</td>
 					</div>
 				</td>
 			</tr>
 			<% end %>
+
 		</table>
 	</div>

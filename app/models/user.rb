@@ -12,5 +12,7 @@ class User < ApplicationRecord
                  }
   validates :encrypted_password, presence: true, length: { maximum: 6 },on: :create
 
+  enum active: { active: 0, inactive: 1 }
+
 
 end

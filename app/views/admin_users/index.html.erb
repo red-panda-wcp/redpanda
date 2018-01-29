@@ -1,19 +1,24 @@
 <h2 class="user-index-top">会員一覧</h2>
-<table>
+<table class="adminuser_table">
 	<thead>
 		<tr>
-			<th>　　　　名前</th>
-			<th>　　　　　　　　住所</th>
-			<th>　　　　　　　　電話番号</th>
-
+			<th>ID</th>
+			<th>名前</th>
+			<th>住所</th>
+			<th>電話番号</th>
+			<th>利用フラグ</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 		<% @users.each do |user| %>
 			<tr>
-				<td>　　　　<%= link_to admin_user_path(user.id) do %><%= user.lastname %>　<%= user.firstname %><% end %></td>
-				<td>　　　　　　　　<%= user.address %> <%= user.address2 %></td>
-				<td>　　　　　　　　<%= user.phone %></td>
+				<td><%= user.id %></td>
+				<td><%= user.lastname %>　<%= user.firstname %></td>
+				<td><%= user.address %><br><%= user.address2 %></td>
+				<td><%= user.phone %></td>
+				<td><%= user.active_i18n %></td>
+				<td><%= link_to "編集", edit_adminusers_to_users_path(user) %>　<%= link_to "削除", admin_user_path(user) ,method: :delete %></td>
 			</tr>
 		<% end %>
 	</tbody>

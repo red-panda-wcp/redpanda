@@ -30,4 +30,30 @@ class AdminUsersController < ApplicationController
     end
     redirect_to admin_users_path#リダイレクト先の変更（deviseの初期値　User#index から rootへ変更
   end
+
+# ユーザー管理者用メソッド
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user = User.update(adminusers_to_users_params)
+    redirect_to admin_users_path
+  end
+
+  private
+  def adminusers_to_users_params
+    params.require(:user).permit(
+      :firstname,
+      :lastname,
+      :kana_firstname,
+      :kana_lastname,
+      :postal_code,
+      :address,
+      :address2,
+      :phone)
+  end
+
+
 end

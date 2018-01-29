@@ -1,0 +1,29 @@
+<h1>ユーザー情報編集</h1>
+<%= form_for :user, url:adminusers_to_users_path do |f| %>
+  <div class="adminuser_edit_form">
+    <%= f.label :lastname, "名字" %>
+    <%= f.text_field :lastname %>
+    <%= f.label :lastname, "名前" %>
+    <%= f.text_field :firstname %>
+    <br>
+
+    <%= f.label :lastname, "名字（カナ）" %>
+    <%= f.text_field :kana_lastname %>
+    <%= f.label :lastname, "名前（カナ）" %>
+    <%= f.text_field :kana_firstname %>
+    <br>
+
+    <%= f.label :lastname, "郵便番号" %>
+    <%= f.text_field :postal_code %>
+    <br>
+    <%= f.label :lastname, "住所" %>
+    <%= f.text_field :address  ,class:"adminuser_edit_form_lg"%>
+    <br>
+    <%= f.label :lastname, "住所（建物名）" %>
+    <%= f.text_field :address2  ,class:"adminuser_edit_form_lg"%>
+    <br>
+    <%= f.label :phone, "電話番号" %>
+    <%= f.text_field :phone %>
+  </div>
+<%= f.submit 'ユーザー変更' %>
+<% end %>

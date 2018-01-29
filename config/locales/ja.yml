@@ -57,3 +57,7 @@ ja:
         preparation: 配送準備中
         in_delivery: 配送中
         finish: 配送完了
+    user:
+      active:
+        active: ◎
+        inactive: ×

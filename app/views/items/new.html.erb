@@ -57,15 +57,12 @@
   </div>
     <!--子要素 -->
     <%= f.fields_for :discs do |d|%>
-        <%# @item.discs.each do |f| %>
-    ディスク番号　　<%= d.text_field :disc_name %><br>
-      <!--孫要素 -->
+    ディスク番号　　<%= d.text_field :disc_name, placeholder: "例：１" %><br>
+    <!--孫要素 --><p>曲名</p>
       <%= d.fields_for :songs do |s|%>
-      　　　　　　　　<%= s.text_field :number, :size=>"5",:placeholder=> "曲順" %> <%= s.text_field :song_name,:placeholder=> "曲名" %><br>
+        　　　　　　　　<%= s.text_field :number, :size=>"5",:placeholder=> "曲順" %> <%= s.text_field :song_name,:placeholder=> "曲名" %><br>
       <% end %>
-     <%# end%>
     <% end %>
-  <hr>
   <%= f.submit "送信", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
   <%= link_to"一覧に戻る", "/" %>
 <% end %>

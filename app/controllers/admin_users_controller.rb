@@ -45,6 +45,7 @@ class AdminUsersController < ApplicationController
   private
   def adminusers_to_users_params
     params.require(:user).permit(
+      :email,
       :firstname,
       :lastname,
       :kana_firstname,

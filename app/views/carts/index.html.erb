@@ -24,7 +24,7 @@
 
                   <div>
                     <!-- 商品１つあたりの金額 -->
-                    <span><%= number_to_currency(cart.item.price, unit: "¥", precision:0) %>円</span>
+                    <span><%= number_to_currency(cart.item.price, unit: "¥", precision:0) %></span>
                     <% if cart.item.stock == 0 %>
                       <span>(売り切れ)</span>
                     <% else %>
@@ -38,7 +38,7 @@
                       <button><%= link_to "　削除　", cart_path(cart.id), method: :delete %></button><br><!--商品削除ボタン-->
                     <% end %>
                 <!-- １商品の合計金額 -->
-                    小計: <%= number_to_currency(cart.item.price*cart.count, unit: "¥", precision:0) %>円<br>
+                    小計: <%= number_to_currency(cart.item.price*cart.count, unit: "¥", precision:0) %><br>
                   </div>
               </div>
 
@@ -48,11 +48,11 @@
 </div>
   <div class="total-price-box">
      <% if @total_price <= 3000 %>
-        <p>送料：<%= @price %>円</p>
-        カート内合計金額：<%= number_to_currency(@total_price+@price, unit: "¥", precision:0) %>円<br>
+        <p>送料：￥<%= @price %></p>
+        カート内合計金額：<%= number_to_currency(@total_price+@price, unit: "¥", precision:0) %><br>
      <% else %>
         <p>送料：無料</p>
-        カート内合計金額：<%= number_to_currency(@total_price, unit: "¥", precision:0) %>円<br>
+        カート内合計金額：<%= number_to_currency(@total_price, unit: "¥", precision:0) %><br>
      <% end %>
       <!-- カートの合計金額 -->
   </div>

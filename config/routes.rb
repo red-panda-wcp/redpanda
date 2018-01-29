@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :carts
   resources :history_addresses, only:[:create]
-  resources :admin_users, only:[:index]
+  resources :admin_users, only:[:index, :show,:destroy]
   resources :categories,only: [:new, :create, :index, :update, :edit, :destroy]
 
   resources :items,only: [:new, :create, :index, :show, :update, :edit, :destroy] do

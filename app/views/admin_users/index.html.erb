@@ -1,1 +1,21 @@
-管理画面です
+<h2 class="user-index-top">会員一覧</h2>
+<table>
+	<thead>
+		<tr>
+			<th>　　　　名前</th>
+			<th>　　　　　　　　住所</th>
+			<th>　　　　　　　　電話番号</th>
+
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+			<tr>
+				<td>　　　　<%= link_to admin_user_path(user.id) do %><%= user.lastname %>　<%= user.firstname %><% end %></td>
+				<td>　　　　　　　　<%= user.address %> <%= user.address2 %></td>
+				<td>　　　　　　　　<%= user.phone %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+

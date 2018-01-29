@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def show
     @user = current_user
 
@@ -27,5 +28,4 @@ class UsersController < ApplicationController
     end
     redirect_to root_path#リダイレクト先の変更（deviseの初期値　User#index から rootへ変更
   end
-
 end

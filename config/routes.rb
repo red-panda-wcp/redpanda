@@ -12,7 +12,7 @@ Rails.application.routes.draw do
         passwords: 'users/passwords'
       }
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get "/users/show" => "users#show",as: :user
+  get "/users/show" => "users#show",as: :users
   delete "/users/destroy" =>"users#destroy"
 
   resources :carts
@@ -25,5 +25,7 @@ Rails.application.routes.draw do
     resources :songs
   end
 
+  get "/admin_users/edit/:id" => "admin_users#edit", as: :edit_adminusers_to_users
+  post "/admin_users/:id" => "admin_users#update", as: :adminusers_to_users
   root "items#index"
 end

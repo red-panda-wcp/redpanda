@@ -9,3 +9,28 @@
     color: #fff;
     border-bottom: 1px solid #000;
     background-color: #000;}
+
+.adminuser_edit_form label {
+    display: inline-block;
+    width: 140px;
+}
+
+.adminuser_edit_form input {
+    padding: 5px;
+    margin: 5px;
+}
+.adminuser_edit_form_lg {
+    width: 350px;
+}
+
+.adminuser_table {
+    width: 100%;
+}
+
+.adminuser_table th,.adminuser_table td{
+    padding: 10px;
+}
+
+.adminuser_table th {
+    background-color: #ccc;
+}

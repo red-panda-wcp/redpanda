@@ -29,7 +29,7 @@
             <li><%= link_to '投稿フォーム', new_item_path %></li>
             <li><%= link_to '管理者用ページ',  admin_users_path %></li>
           <% elsif user_signed_in? %>
-            <li>ログイン中のユーザー：<%= link_to "#{current_user.lastname} #{current_user.firstname}",user_path %> (id:<%= current_user.id %>) </li>
+            <li>ログイン中のユーザー：<%= link_to "#{current_user.lastname} #{current_user.firstname}",users_path %> (id:<%= current_user.id %>) </li>
             <li><%= link_to 'カート', carts_path %></li>
             <li><%= link_to 'ログアウト',destroy_user_session_path,method: :delete%></li>
           <% else %>

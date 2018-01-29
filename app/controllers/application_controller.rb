@@ -2,7 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :serch_items
   before_action :login_user_admin_kind
+
   before_action :configure_permitted_parameters, if: :devise_controller?#StrongParameterをbeforeactionする
+
 
   def serch_items
     @q = Item.search(params[:q])
@@ -17,6 +19,7 @@ class ApplicationController < ActionController::Base
       @add_class = "applicaion-users"
     end
   end
+
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up,keys:[

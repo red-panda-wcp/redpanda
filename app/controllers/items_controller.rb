@@ -9,8 +9,12 @@ class ItemsController < ApplicationController
 
   def new
   	@item = Item.new
-    @disc = @item.discs.build
-    @disc.songs.build
+    2.times do
+      @disc = @item.discs.build
+      10.times do
+        @disc.songs.build
+      end
+    end
   end
 
   def create

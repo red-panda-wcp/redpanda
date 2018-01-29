@@ -28,8 +28,8 @@ class HistoryAddressesController < ApplicationController
     @carts.destroy_all#カート内削除
     flash[:notice] = "ご購入ありがとうございます。発送までしばしお待ち下さい。"
 
-    redirect_to user_path
-    end
+    redirect_to users_path
+  end
 
 
   end

@@ -1,4 +1,6 @@
 class AdminUsersController < ApplicationController
+  before_action :authenticate_admin_to_root
+
 	def index
 		@users = User.all
 	end
@@ -21,15 +23,6 @@ class AdminUsersController < ApplicationController
     @total_price = 0 #合計金額初期化
   end
 
-  def destroy
-    @user = User.find(params[:id])
-    @user.active = 1#activeカラムを1（削除済）にして、保存
-    @user.email = "#{@user.last_sign_in_at.to_i.to_s}_#{@user.email.to_s}"
-    if @user.save
-      flash[:notice] = "ユーザーを削除しました。"
-    end
-    redirect_to admin_users_path#リダイレクト先の変更（deviseの初期値　User#index から rootへ変更
-  end
 
 # ユーザー管理者用メソッド
   def edit
@@ -40,6 +33,16 @@ class AdminUsersController < ApplicationController
     @user = User.find(params[:id])
     @user = User.update(adminusers_to_users_params)
     redirect_to admin_users_path
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.active = 1#activeカラムを1（削除済）にして、保存
+    @user.email = "#{@user.last_sign_in_at.to_i.to_s}_#{@user.email.to_s}"
+    if @user.save
+      flash[:notice] = "ユーザーを削除しました。"
+    end
+    redirect_to admin_users_path#リダイレクト先の変更（deviseの初期値　User#index から rootへ変更
   end
 
   private
@@ -54,6 +57,12 @@ class AdminUsersController < ApplicationController
       :address,
       :address2,
       :phone)
+  end
+
+  def authenticate_admin_to_root
+    if !admin_signed_in?
+    redirect_to root_path
+    end
   end
 
 

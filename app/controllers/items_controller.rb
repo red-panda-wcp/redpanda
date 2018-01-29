@@ -9,12 +9,8 @@ class ItemsController < ApplicationController
 
   def new
   	@item = Item.new
-      # @disc = @item.discs.build
-      # n.times{@disc.songs.build}
-    [1,1].each do |f|
-      @disc = @item.discs.build
-      f.times{@disc.songs.build}
-end
+    @disc = @item.discs.build
+    @disc.songs.build
   end
 
   def create

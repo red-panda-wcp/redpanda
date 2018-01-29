@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     #     histroies_ids 該当ユーザーがこれまで使用した全配送住所（history_address_id）
     #     h_histories 同一配送先住所(history_address_id)ごとにまとめた履歴
     #     h_h_item 同一配送先住所（history_address_id)内のひとつひとつの履歴
-
+    @price = 540
     @total_price = 0 #合計金額初期化
   end
 

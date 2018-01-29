@@ -9,7 +9,7 @@
 	<p class="title"><%= @item.item_name %></p>
 	<span class="item-logo">レーベル <%= @item.label_name %></span>  <span class="item-logo">ジャンル <%= @item.category.category_name%></span><br><br>
   発売日：　<%= @item.release_date %><br>
-	価格：　<%= number_to_currency(@item.price, :unit => "¥", :precision => 0) %>円<br>
+	価格：　<%= number_to_currency(@item.price, :unit => "¥", :precision => 0) %><br>
 	在庫：　<% if @item.stock == 0 %>
           <span>売り切れ</span>
 

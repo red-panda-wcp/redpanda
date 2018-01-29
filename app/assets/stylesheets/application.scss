@@ -116,12 +116,16 @@ h1 {
     text-align: right;
     color: #ff0000;
     font-weight: bold;
+    float: left;
 }
-
 #item_search{
   margin-left: 100px;
   margin-top: 10px;
 }
 #q_artist_name_or_label_name_or_item_name_cont{
   width: 300px;
+}
+.user-index-top{
+  margin-left: 400px;
+  margin-bottom: 50px;
 }

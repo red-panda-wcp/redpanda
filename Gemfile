@@ -66,3 +66,4 @@ group :development, :test do
   gem 'pry-rails'
 end
 gem 'enum_help'
+gem 'nested_form_fields'

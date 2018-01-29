@@ -1,6 +1,9 @@
 <h1>ユーザー情報編集</h1>
 <%= form_for :user, url:adminusers_to_users_path do |f| %>
   <div class="adminuser_edit_form">
+    <%= f.label :email , "メールアドレス" %>
+    <%= f.text_field :email %>
+    <br>
     <%= f.label :lastname, "名字" %>
     <%= f.text_field :lastname %>
     <%= f.label :lastname, "名前" %>

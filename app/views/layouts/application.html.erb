@@ -29,7 +29,7 @@
             <li><%= link_to '投稿フォーム', new_item_path %></li>
             <li><%= link_to '管理者用ページ',  admin_users_path %></li>
           <% elsif user_signed_in? %>
-            <li><i class="fa fa-user-circle" aria-hidden="true"></i>ログイン中のユーザー：<%= link_to "#{current_user.lastname} #{current_user.firstname}",user_path %>　様</li>
+            <li><i class="fa fa-user-circle" aria-hidden="true"></i>ログイン中のユーザー：<%= link_to "#{current_user.lastname} #{current_user.firstname}",users_path %>　様</li>
             <%= link_to carts_path do %>
               <li><i class="fa fa-shopping-cart"></i> カート</li>
             <% end %>

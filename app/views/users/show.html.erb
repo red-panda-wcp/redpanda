@@ -8,7 +8,7 @@
     <span class="user_logo">郵便番号</span> 　<%= @user.postal_code %><br>
     <span class="user_logo">住所</span> 　<%= @user.address %><br>
     <span class="user_logo">建物名</span> 　<%= @user.address2 %><br>
-    <span class="user_logo">電話番号</span> 　<%= number_to_phone @user.phone %><br>
+    <span class="user_logo">電話番号</span> 　<%= @user.phone %><br>
 <!-- プロフィール編集&削除ボタン -->
     <%= link_to "削除", users_destroy_path,method: :delete ,class: "square_btn2",data: { :confirm => "ユーザーを削除しますか？\n削除すると戻せませんのでご注意ください。"}%>
     <%= link_to "編集", edit_user_registration_path ,class: "square_btn1"%>

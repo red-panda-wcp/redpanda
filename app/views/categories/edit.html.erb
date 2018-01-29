@@ -13,14 +13,14 @@
 <% @categories.each do |category| %>
  <%= category.category_name %>
  <%= link_to "edit", edit_category_path(category) %>
-
+  
   <% if category.items.presence != nil %>
     利用アイテムあり。削除不可 <br>
     <% else %>
    <%= link_to "destroy", category_path(category), method: :delete %><br>
    <% end %>
-
+  
 <% end %>
 
 <br>
-<%= link_to "一覧へ戻る", items_path %>　｜　<%= link_to '投稿フォームへ戻る', new_item_path %>
+<%= link_to "一覧へ戻る", items_path %>

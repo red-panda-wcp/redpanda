@@ -10,7 +10,7 @@ class User < ApplicationRecord
                    with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
                    message: "は全角カタカナで入力して下さい。"
                  }
-  validates :encrypted_password, presence: true, length: { maximum: 6 },on: :create
+  # validates :encrypted_password, presence: true, length: { maximum: 6 },on: :create
 
   enum active: { active: 0, inactive: 1 }
 

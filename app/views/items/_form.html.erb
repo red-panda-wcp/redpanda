@@ -1,15 +1,15 @@
+<h2>商品登録</h2>
 <%= form_for(@item) do |f| %>
-  <%# if @item.errors.any? %>
+  <% if @item.errors.any? %>
     <div id="error_explanation">
-      <h2><%#= @item.errors.count %><!-- 件のエラーが発生しました。 --></h2>
+      <h2><%= @item.errors.count %>件のエラーが発生しました。</h2>
       <ul>
-      <%# @item.errors.full_messages.each do |message| %>
-        <li><%#= message %></li>
-      <%# end %>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
       </ul>
     </div>
-  <%# end %>
-  <h2>商品登録</h2>
+  <% end %>
   <div class="row">
   　<div class="col-sm-12">
       表示・非表示　<%= f.select :active, Item.actives_i18n.keys.map { |k| [Item.actives_i18n[k], k]} %>

@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
     @no_item = Item.where(active: 1)
     @no_q = @no_item.search(params[:q])
     @no_items = @no_q.result(distinct: true)
-
   end
 
   def new

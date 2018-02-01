@@ -16,7 +16,9 @@
 			<tr>
 				<td>
 					<!--画像画面左　登録がない場合noimageを表示-->
+					<%= link_to item_path(item.id) do %>
 					<%= attachment_image_tag item, :image, :fill, 150, 150, format: 'jpeg', fallback: "noimage_panda1.jpg",class:"item_image" %>
+					<% end %>
 				</td>
 					<!--商品内容-->
 				<td class="item_index_box_detail">
@@ -33,12 +35,53 @@
 					<td>
 						<% if admin_signed_in? %>
 							<%=link_to("編集する","/items/#{item.id}/edit")%><br>
-							<%=link_to "削除する", item_path(item.id), method: :delete, "data-confirm" => '削除してよろしいですか？' %><br>
 						<% end %>
 					</td>
 				</td>
 			</tr>
 			<% end %>
 
+
 		</table>
 	</div>
+	<% if admin_signed_in? %>
+	<h1>非表示CD一覧</h1>
+	<div class="item_container">
+		<% if params[:q].present? && params[:q][:artist_name_or_label_name_or_item_name_cont].present? %>
+		<div>
+			<p>検索語句：　<%= params[:q][:artist_name_or_label_name_or_item_name_cont] %></p>
+		</div>
+		<% end %>
+
+		<table class="item_index_box">
+			<% @no_items.each do |item| %>
+			<tr>
+				<td>
+					<!--画像画面左　登録がない場合noimageを表示-->
+					<%= link_to item_path(item.id) do %>
+					<%= attachment_image_tag item, :image, :fill, 150, 150, format: 'jpeg', fallback: "noimage_panda1.jpg",class:"item_image" %>
+					<% end %>
+				</td>
+					<!--商品内容-->
+				<td class="item_index_box_detail">
+					<p><%= item.artist_name %></p>
+					<p><h3><%= link_to "#{item.item_name}", item_path(item) %></h3></p>
+					<p><%= item.label_name %></p>
+					<p><%= number_to_currency(item.price, :unit => "¥", :precision => 0) %>
+					<% if item.stock == 0 %>
+                      <span>売り切れ</span>
+                    <% else %>
+                      <span>(在庫: <%= item.stock %>個)</span>
+                    <% end %>
+					</p>
+					<td>
+						<% if admin_signed_in? %>
+							<%=link_to("編集する","/items/#{item.id}/edit")%><br>
+						<% end %>
+					</td>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+	<% end %>

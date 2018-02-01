@@ -13,4 +13,6 @@ class Item < ApplicationRecord
                                 allow_destroy: true
 
   validates :artist_name,:item_name,:price,:label_name,:stock, :release_date, presence: true
+
+  enum active: { display: 0, hide: 1}
 end

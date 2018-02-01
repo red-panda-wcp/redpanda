@@ -2,9 +2,14 @@ class ItemsController < ApplicationController
   before_action :authenticate_admin!, except:[:index,:show]
 
   def index
-    @q = Item.search(params[:q])
-    @items = @q.result(distinct: true) #|| Item.all
-    # Rails.logger.info(@items.first.category_id)
+    @item = Item.where(active: 0)
+    @q = @item.search(params[:q])
+    @items = @q.result(distinct: true)
+
+    @no_item = Item.where(active: 1)
+    @no_q = @no_item.search(params[:q])
+    @no_items = @no_q.result(distinct: true)
+
   end
 
   def new
@@ -57,6 +62,7 @@ class ItemsController < ApplicationController
           :stock,
           :category_id,
           :release_date,
+          :active,
             discs_attributes: [
               :id,
               :disc_name,

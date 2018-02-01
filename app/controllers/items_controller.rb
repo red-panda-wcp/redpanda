@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @q = Item.search(params[:q])
-    @items = @q.result(distinct: true) || Item.all
+    @items = @q.result(distinct: true) #|| Item.all
     # Rails.logger.info(@items.first.category_id)
   end
 

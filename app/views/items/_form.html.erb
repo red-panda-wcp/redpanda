@@ -1,0 +1,66 @@
+<%= form_for(@item) do |f| %>
+  <%# if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%#= @item.errors.count %>件のエラーが発生しました。</h2>
+      <ul>
+      <%# @item.errors.full_messages.each do |message| %>
+        <li><%#= message %></li>
+      <%# end %>
+      </ul>
+    </div>
+  <%# end %>
+  <h2>商品登録</h2>
+  <div class="row">
+  　<div class="col-sm-12">
+      ジャケット画像　<%= f.attachment_field :image %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group has-icon">
+        アーティスト名　<%= f.text_field :artist_name, class:"form-control" %>
+        <span class="fa fa-building form-control-icon" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="col-sm-6">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      タイトル　　　　<%= f.text_field :item_name, class:"form-control", rows:"3" %>
+    </div>
+  </div>
+  <!--カテゴリー登録-->
+      カテゴリー　　　<%= f.collection_select :category_id, Category.all, :id, :category_name %>　　<%=link_to("カテゴリー編集",categories_path)%>
+        <div class="row">
+    <div class="col-sm-12">
+      レーベル　　　　<%= f.text_field :label_name, class:"form-control", rows:"3" %>
+    </div>
+  </div>
+   <div class="row">
+    <div class="col-sm-12">
+      価格　　　　　　<%= f.text_field :price, class:"form-control", rows:"3" %>
+    </div>
+  </div>
+  <br>
+   <div class="row">
+    <div class="col-sm-12">
+      在庫数　　　　　<%= f.text_field :stock, class:"form-control", rows:"3" %>
+    </div>
+  </div>
+     <div class="row">
+    <div class="col-sm-12">
+      リリース日　　　<%= f.date_field :release_date, class:"form-control", rows:"3" %>
+    </div>
+  </div>
+    <!--子要素 -->
+    <%= f.fields_for :discs do |disc|%>
+      <%= render 'disc_fields', f: disc %>
+    <% end %>
+
+    <div id="links">
+      <%= link_to_add_association 'ディスク追加',f, :discs %>
+    </div>
+  <%= f.submit "送信", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+  <%= link_to"一覧に戻る", "/" %>
+<% end %>

@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_admin!, except:[:index,:show]
 
   def index
-    @q = Item.search(params[:q])
+    @q = Item.search(params[:q],stock_eq:3)
     @items = @q.result(distinct: true) #|| Item.all
     # Rails.logger.info(@items.first.category_id)
   end

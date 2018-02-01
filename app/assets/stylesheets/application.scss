@@ -105,6 +105,19 @@ header ul{
   bottom: 0;
 }
 
+.applicaion-users-image {
+  background-image: url(logo.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+.applicaion-admins-image {
+  background-image: url(logo2.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
 .header-logo {
   float: left;
   font-size: 50px;

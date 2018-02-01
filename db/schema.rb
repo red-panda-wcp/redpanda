@@ -86,9 +86,6 @@ ActiveRecord::Schema.define(version: 20180201063816) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "active", default: 0
-    t.index ["artist_name"], name: "index_items_on_artist_name"
-    t.index ["item_name"], name: "index_items_on_item_name"
-    t.index ["label_name"], name: "index_items_on_label_name"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -122,8 +119,6 @@ ActiveRecord::Schema.define(version: 20180201063816) do
     t.datetime "updated_at", null: false
     t.string "address2"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["firstname"], name: "index_users_on_firstname"
-    t.index ["lastname"], name: "index_users_on_lastname"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

@@ -155,11 +155,10 @@ header ul{
 }
 
 #item_search{
-  margin-left: 100px;
   margin-top: 10px;
 }
 #q_artist_name_or_label_name_or_item_name_cont{
-  width: 200px;
+  width: 70%;
 }
 .user-index-top{
   margin-left: 400px;
@@ -177,16 +176,15 @@ header ul{
 /* 検索ボックス */
 dl.searchbox{
   width: 350px;
+  margin-left: auto;
   position:relative;
   background-color:#fff;
-  border:1px solid #aaa;
   border-radius:6px;
 }
 dl.searchbox dt{
   padding:3px;
 }
 dl.searchbox dt input{
-  width:70%;
   height:30px;
   line-height:30px;
   background:none;
@@ -194,13 +192,13 @@ dl.searchbox dt input{
 }
 dl.searchbox dd{
   position:absolute;
-  top:1px;
-  right:1px;
+  top:0px;
+  right:0px;
   width:30%;
 }
 .search-btn{
   display:block;
-  background:#5fad35;
+  background:black;
   width:100%;
   height:36px;
   line-height:36px;
@@ -210,5 +208,5 @@ dl.searchbox dd{
 }
 
 .search-btn:hover {
-  background:#228B22;
+  background:red;
 }

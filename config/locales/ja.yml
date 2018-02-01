@@ -61,3 +61,7 @@ ja:
       active:
         active: ◎
         inactive: ×
+    item:
+        active:
+            display: 表示
+            hide: 非表示

@@ -1,5 +1,5 @@
 <div class="nested-fields">
-<%= f.number_field :number %>
+曲名　　　　　　<%= f.number_field :number,min:1,max:100,:placeholder=> "曲順" %>
 ：
-<%= f.text_field :song_name,:placeholder=> "曲名" %> <%= link_to_remove_association "[x]", f %>
+<%= f.text_field :song_name,:placeholder=> "曲名" %> <%= link_to_remove_association "❎", f %>
 </div>

@@ -10,8 +10,7 @@
     <meta http-equiv="content-language" content="ja">
   </head>
   <body>
-  <div class="container">
-
+  <div class="container <%= "#{@add_class}"%>-image">
    <header>
     <div class="<%= "#{@add_class}"%>-header clearfix">
       <div class="header-logo">
@@ -32,7 +31,7 @@
             <li><%= link_to '投稿フォーム', new_item_path %></li>
             <li><%= link_to '管理者用ページ',  admin_users_path %></li>
           <% elsif user_signed_in? %>
-            <li><i class="fa fa-user-circle" aria-hidden="true"></i>ログイン中のユーザー：<%= link_to "#{current_user.lastname} #{current_user.firstname}",users_path %>　様</li>
+            <li><i class="fa fa-user-circle" aria-hidden="true"></i>ようこそ　<%= link_to "#{current_user.lastname} #{current_user.firstname}",users_path %>　様</li>
             <%= link_to carts_path do %>
               <li><i class="fa fa-shopping-cart"></i> カート</li>
             <% end %>
@@ -53,6 +52,7 @@
       </div>
     </div>
    </header>
+
    <br>
    <div class="stores_info" id="move_adv">送料一律540円　3,000円以上送料無料！！</div>
   <div class="<%= "#{@add_class}"%>-image clearfix">

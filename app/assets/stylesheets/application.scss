@@ -18,6 +18,9 @@
   padding:0;
   box-sizing: border-box;
 }
+li{
+  display: inline;
+}
 a:-webkit-any-link:hover{
   color: red;
 }
@@ -117,7 +120,12 @@ header ul{
   float: right;
   margin: 0 30px;
 }
-
+.continer{
+  position: relative;
+  height:auto !important; /*IE6対策*/
+  height: 100%; /*IE6対策*/
+  min-height: 100%;
+}
 .container_all {
   width: 80%;
   margin: 0 auto;
@@ -142,4 +150,10 @@ header ul{
 .user-index-top{
   margin-left: 400px;
   margin-bottom: 50px;
+}
+.history-address-form{
+  margin-left: 200px;
+}
+.bottom-margin{
+  margin-bottom: 165px;
 }

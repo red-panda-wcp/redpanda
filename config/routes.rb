@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   resources :items,only: [:new, :create, :index, :show, :update, :edit, :destroy] do
     resources :discs
     resources :songs
+      [collection do
+        get :add_disc
+        post :add_song
+      end]
   end
 
   get "/admin_users/edit/:id" => "admin_users#edit", as: :edit_adminusers_to_users

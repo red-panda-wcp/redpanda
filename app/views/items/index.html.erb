@@ -3,7 +3,7 @@
 	<%=link_to("カテゴリー編集",categories_path)%>
 <% end %>
 
-	<div class="container">
+	<div class="item_container">
 		<% if params[:q].present? && params[:q][:artist_name_or_label_name_or_item_name_cont].present? %>
 		<div>
 			<p>検索語句：　<%= params[:q][:artist_name_or_label_name_or_item_name_cont] %></p>
@@ -36,7 +36,6 @@
 							<%=link_to "削除する", item_path(item.id), method: :delete, "data-confirm" => '削除してよろしいですか？' %><br>
 						<% end %>
 					</td>
-					</div>
 				</td>
 			</tr>
 			<% end %>

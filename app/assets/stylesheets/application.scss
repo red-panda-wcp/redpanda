@@ -18,6 +18,9 @@
   padding:0;
   box-sizing: border-box;
 }
+li{
+  display: inline;
+}
 a:-webkit-any-link:hover{
   color: red;
 }
@@ -28,6 +31,15 @@ a {
 
 .fa_icon{
   padding-right:10px;
+}
+
+html,body {
+  height: 100%;
+}
+
+.container {
+  min-height: 100%;
+  position: relative;
 }
 
 /*=========================application.html.erb=========================*/
@@ -70,7 +82,9 @@ header ul{
   height: 30px;
   font-size: 10px;
   line-height: 30px;
-  margin-top: 500px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 
 
@@ -86,7 +100,9 @@ header ul{
   height: 30px;
   font-size: 10px;
   line-height: 30px;
-  margin-top: 500px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 
 .applicaion-users-image {
@@ -117,25 +133,26 @@ header ul{
   float: right;
   margin: 0 30px;
 }
-
+.continer{
+  position: relative;
+  height:auto !important; /*IE6対策*/
+  height: 100%; /*IE6対策*/
+  min-height: 100%;
+}
 .container_all {
   width: 80%;
   margin: 0 auto;
   padding: 50px 0;
 }
 
-h1 {
-  padding-bottom: 30px;
-}
-
-
 .stores_info {
-    padding: 20px 50px;
-    text-align: right;
-    color: #ff0000;
-    font-weight: bold;
-    float: left;
+  padding: 0 50px;
+  color: #ff0000;
+  font-weight: bold;
+  height: 50px;
+  line-height: 50px;
 }
+
 #item_search{
   margin-left: 100px;
   margin-top: 10px;
@@ -146,4 +163,10 @@ h1 {
 .user-index-top{
   margin-left: 400px;
   margin-bottom: 50px;
+}
+.history-address-form{
+  margin-left: 200px;
+}
+.bottom-margin{
+  margin-bottom: 165px;
 }

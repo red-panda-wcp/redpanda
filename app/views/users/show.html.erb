@@ -40,14 +40,16 @@
                   </div>
 
                   購入商品：<%= h_histories.size %>（購入点数：<%= h_histries_count %> ）<br>
-                  <table>
-                    <tr>
-                      <td class="history_items_name">アルバム</td>
-                      <td class="history_items_name">アーティスト</td>
-                      <td>値段</td>
-                      <td>数</td>
-                      <td>小計</td>
-                    </tr>
+                  <table class="history_table">
+                    <thead>
+                      <tr>
+                        <th class="history_items_name">アルバム</th>
+                        <th class="history_items_name">アーティスト</th>
+                        <th>値段</th>
+                        <th>数</th>
+                        <th>小計</th>
+                      </tr>
+                    </thead>
 
                     <% h_histories.each do |h_h_item| #history_addressで抽出した履歴一覧から個別出力%>
                     <!-- 個別の商品情報を繰り返し出力 -->
@@ -62,7 +64,7 @@
                     <% end %>
 
                     <!-- 合計金額を出すためのテーブルの合計行 -->
-                    <tr>
+                    <tr class="history_address_line">
                       <% if @total_price <= 3000 %>
                       <td colspan="3"></td>
                       <td>送料：</td>

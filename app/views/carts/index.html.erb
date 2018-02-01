@@ -68,7 +68,7 @@
               <span><span class="ad-form-label">郵便番号</span><%= f.text_field :postal_code,placeholder: "111-0000",class:"form_style_half form_input",value:"#{current_user.postal_code}" %></span><br>
               <span><span class="ad-form-label">住所</span><%= f.text_field :address,placeholder: "東京都渋谷区渋谷１−１−１",class:"form_style form_input",value:"#{current_user.address}" %></span><br>
               <span><span class="ad-form-label">住所(建物名)</span><%= f.text_field :address2 ,placeholder: "マンション",class:"form_style form_input",value:"#{current_user.address2}" %></span><br>
-              <span><span class="ad-form-label">電話番号</span><%= f.text_field :phone,placeholder: "000-0000-0000",class:"form_style form_input",value:"#{current_user.phone}"%></span>
+              <span><span class="ad-form-label">電話番号</span><%= f.text_field :phone,placeholder: "090",class:"form_style2 form_input",value:"#{current_user.phone}"%>-<%= f.text_field :phone2,placeholder: "0000",class:"form_style2 form_input",value:"#{current_user.phone2}"%>-<%= f.text_field :phone3,placeholder: "0000",class:"form_style2 form_input",value:"#{current_user.phone3}"%></span>
               <span class="history-address-form"><%= f.submit "購入", :disable_with => '購入中...' ,class:"square_btn3",data: { confirm: "本当に購入しますか?" }%></span>
 
       <% end %>

@@ -38,7 +38,7 @@ class HistoryAddressesController < ApplicationController
 
   def history_address_params
     params.require(:history_address).permit(:postal_code,:address,:address2,:lastname,:firstname,
-                                      :kana_lastname,:kana_firstname,:phone,history_attributes:[
+                                      :kana_lastname,:kana_firstname,:phone,:phone2,:phone3,history_attributes:[
                                         :user_id,:item_id,:count,:order_status,:price,:history_address_id])
   end
 

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :lastname, :firstname, :postal_code, :address, :phone, presence: true
+  validates :lastname, :firstname, :postal_code, :address, :phone,:phone2,:phone3, presence: true
   validates :kana_lastname, :kana_firstname,  presence: true,
   			 format: {
                    with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,

@@ -154,9 +154,6 @@ header ul{
   position: absolute;
 }
 
-#item_search{
-  margin-top: 10px;
-}
 #q_artist_name_or_label_name_or_item_name_cont{
   width: 70%;
 }
@@ -170,9 +167,6 @@ header ul{
 .bottom-margin{
   margin-bottom: 165px;
 }
-
-
-//==================
 /* 検索ボックス */
 dl.searchbox{
   width: 350px;
@@ -206,7 +200,6 @@ dl.searchbox dd{
   border-radius: 0 6px 6px 0;
   color:#FFF;
 }
-
 .search-btn:hover {
   background:red;
 }

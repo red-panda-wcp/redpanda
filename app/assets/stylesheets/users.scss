@@ -323,7 +323,11 @@ textarea {
     position: fixed;
     top: 50%;
     left: 50%;
-    margin: -250px 0 0 -200px;
+    margin: 50px 0 0 -200px;
+    min-height: 100%;
+    position: relative;
+    height:auto !important; /*IE6対策*/
+    height: 100%; /*IE6対策*/
 }
 
 .form_signin {

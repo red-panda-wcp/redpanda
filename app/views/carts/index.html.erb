@@ -1,5 +1,4 @@
-<div>
-  <p class="cart-top title"><i class="fa fa-shopping-cart fa_icon"></i><%= "#{current_user.lastname} #{current_user.firstname}" %>さんのカート内商品一覧</p><!--ここはまだ名前カラムをユーザーテーブルに作ってないのでメールで仮置きしてます-->
+<p class="cart-top title"><i class="fa fa-shopping-cart fa_icon"></i><%= "#{current_user.lastname} #{current_user.firstname}" %>さんのカート内商品一覧</p><!--ここはまだ名前カラムをユーザーテーブルに作ってないのでメールで仮置きしてます-->
 
   <% if flash[:n] %>
     <div class="message1"><%= flash[:n] %></div>
@@ -41,10 +40,8 @@
                     小計: <%= number_to_currency(cart.item.price*cart.count, unit: "¥", precision:0) %><br>
                   </div>
               </div>
-
          <% end %>
   <% end %>
-
 </div>
   <div class="total-price-box">
      <% if @total_price <= 3000 %>
@@ -56,7 +53,6 @@
      <% end %>
       <!-- カートの合計金額 -->
   </div>
-    </div>
   <% end %>
     <!-- 送り先情報 -->
   <div class="price-box1 clearfix">
@@ -64,34 +60,17 @@
         <p class="title"><i class="fa fa-bus"></i> 配送先情報</p>
 
       <%= form_for :history_address,url:history_addresses_path do |f|%>
-          <div class="border-line">
-              <span><span class="ad-form-label">姓（カタカナ）</span><%= f.text_field :kana_lastname,placeholder: "ヤマダ",class:"form_style_half form_input",value:"#{current_user.kana_lastname}" %></span>
-              <span><span class="ad-form-label">名（カタカナ)</span><%= f.text_field :kana_firstname,placeholder: "タロウ",class:"form_style_half form_input",value:"#{current_user.kana_firstname}" %></span>
-            </div>
-            <div class="border-line">
-              <span><span class="ad-form-label">姓</span><%= f.text_field :lastname,placeholder: "山田" ,class:"form_style_half form_input",value:"#{current_user.lastname}" %></span>
-              <span><span class="ad-form-label">名</span><%= f.text_field :firstname,placeholder: "太郎",class:"form_style_half form_input",value:"#{current_user.firstname}" %></span>
-            </div>
 
-            <div class="border-line">
-              <span><span class="ad-form-label">郵便番号</span><%= f.text_field :postal_code,placeholder: "111-0000",class:"form_style_half form_input",value:"#{current_user.postal_code}" %></span>
-            </div>
-            <div class="border-line">
-              <span><span class="ad-form-label">住所</span><%= f.text_field :address,placeholder: "東京都渋谷区渋谷１−１−１",class:"form_style form_input",value:"#{current_user.address}" %></span>
-            </div>
-            <div class="border-line">
-              <span><span class="ad-form-label">住所(建物名)</span><%= f.text_field :address2 ,placeholder: "マンション",class:"form_style form_input",value:"#{current_user.address2}" %></span>
-            </div>
-            <div class="border-line">
+              <span><span class="ad-form-label">姓（カタカナ）</span><%= f.text_field :kana_lastname,placeholder: "ヤマダ",class:"form_style_half form_input",value:"#{current_user.kana_lastname}" %></span>
+              <span><span class="ad-form-label">名（カタカナ)</span><%= f.text_field :kana_firstname,placeholder: "タロウ",class:"form_style_half form_input",value:"#{current_user.kana_firstname}" %></span><br>
+              <span><span class="ad-form-label">姓</span><%= f.text_field :lastname,placeholder: "山田" ,class:"form_style_half form_input",value:"#{current_user.lastname}" %></span>
+              <span><span class="ad-form-label">名</span><%= f.text_field :firstname,placeholder: "太郎",class:"form_style_half form_input",value:"#{current_user.firstname}" %></span><br>
+              <span><span class="ad-form-label">郵便番号</span><%= f.text_field :postal_code,placeholder: "111-0000",class:"form_style_half form_input",value:"#{current_user.postal_code}" %></span><br>
+              <span><span class="ad-form-label">住所</span><%= f.text_field :address,placeholder: "東京都渋谷区渋谷１−１−１",class:"form_style form_input",value:"#{current_user.address}" %></span><br>
+              <span><span class="ad-form-label">住所(建物名)</span><%= f.text_field :address2 ,placeholder: "マンション",class:"form_style form_input",value:"#{current_user.address2}" %></span><br>
               <span><span class="ad-form-label">電話番号</span><%= f.text_field :phone,placeholder: "000-0000-0000",class:"form_style form_input",value:"#{current_user.phone}"%></span>
-            </div>
-            <div class="text-center1">
-              <%= f.submit "情報登録" %>
-            </div>
-          </div>
-          <div class="adress-box-right">
-            <%= f.submit "購入", :disable_with => '購入中...' ,class:"square_btn3",date:{confirm:"本当に購入しますか"}%>
-          </div>
+              <span class="history-address-form"><%= f.submit "購入", :disable_with => '購入中...' ,class:"square_btn3",data: { confirm: "本当に購入しますか?" }%></span>
+
       <% end %>
    <br><br>
   </div>

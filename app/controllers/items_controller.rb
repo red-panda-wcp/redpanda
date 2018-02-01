@@ -8,22 +8,18 @@ class ItemsController < ApplicationController
   end
 
   def new
-  	@item = Item.new
-    2.times do
-      @disc = @item.discs.build
-      10.times do
-        @disc.songs.build
-      end
-    end
+    @item = Item.new
+    @disc = @item.discs.build
+    @song = @disc.songs.build
   end
 
   def create
   	@item = Item.new(item_params)
     if @item.save
     redirect_to ("/")
-  else
-    render ("items/new")
-  end
+    else
+      render ("items/new")
+    end
   end
 
   def show
@@ -64,10 +60,12 @@ class ItemsController < ApplicationController
             discs_attributes: [
               :id,
               :disc_name,
+              :_destroy,
               songs_attributes: [
                 :id,
                 :number,
-                :song_name
+                :song_name,
+                :_destroy
               ]
             ]
           )

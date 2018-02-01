@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180128053923) do
+ActiveRecord::Schema.define(version: 20180201063816) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20180128053923) do
     t.date "release_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "active", default: 0
     t.index ["artist_name"], name: "index_items_on_artist_name"
     t.index ["item_name"], name: "index_items_on_item_name"
     t.index ["label_name"], name: "index_items_on_label_name"

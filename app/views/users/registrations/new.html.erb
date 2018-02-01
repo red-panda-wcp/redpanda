@@ -31,7 +31,7 @@
 
         <%= f.text_field :lastname, placeholder:"名字",class:"form_style_half form_input" %>
         <%= f.text_field :firstname, placeholder:"名前",class:"form_style_half form_input" %><br>
-        <%= f.telephone_field :phone, placeholder:"電話番号(半角)",class:"form_style form_input",onKeyup:"this.value=this.value.replace(/[^0-9]+/,'')" %><br>
+        <%= f.telephone_field :phone, placeholder:"電話番号(半角)",class:"form_style2 form_input",onKeyup:"this.value=this.value.replace(/[^0-9]+/,'')" %>-<%= f.telephone_field :phone2, placeholder:"電話番号(半角)",class:"form_style2 form_input",onKeyup:"this.value=this.value.replace(/[^0-9]+/,'')" %>-<%= f.telephone_field :phone3, placeholder:"電話番号(半角)",class:"form_style2 form_input",onKeyup:"this.value=this.value.replace(/[^0-9]+/,'')" %><br>
 
         <%= f.submit "登録",class:"btn" %>
       </div>

@@ -29,7 +29,7 @@
     <!-- 住所自動設定ツール参考：https://github.com/yubinbango/yubinbango -->
 
 
-        <%= f.telephone_field :phone, placeholder:"電話番号",class:"form_style form_input",onKeyup:"this.value=this.value.replace(/[^0-9]+/,'')" %><br>
+        <%= f.telephone_field :phone, placeholder:"電話番号",class:"form_style2 form_input",onKeyup:"this.value=this.value.replace(/[^0-9]+/,'')" %>-<%= f.telephone_field :phone2, placeholder:"電話番号",class:"form_style2 form_input",onKeyup:"this.value=this.value.replace(/[^0-9]+/,'')" %>-<%= f.telephone_field :phone3, placeholder:"電話番号",class:"form_style2 form_input",onKeyup:"this.value=this.value.replace(/[^0-9]+/,'')" %><br>
 
        <fieldset class="form_password_changes">
           <legend>パスワードの変更</legend>

@@ -8,6 +8,12 @@ class AdminUsersController < ApplicationController
 	def show
     @user = User.find(params[:id])
 
+  end
+
+
+# ユーザー管理者用メソッド
+  def edit
+    @user = User.find(params[:id])
     # 履歴表示
     @histories_for_user = History.where(user_id:@user.id)
     @histories = History.where(user_id: @user.id).order("id desc") #ログインユーザーの履歴を一覧化
@@ -21,12 +27,6 @@ class AdminUsersController < ApplicationController
     #     h_h_item 同一配送先住所（history_address_id)内のひとつひとつの履歴
 
     @total_price = 0 #合計金額初期化
-  end
-
-
-# ユーザー管理者用メソッド
-  def edit
-    @user = User.find(params[:id])
   end
 
   def update
@@ -56,7 +56,9 @@ class AdminUsersController < ApplicationController
       :postal_code,
       :address,
       :address2,
-      :phone)
+      :phone,
+      :phone2,
+      :phone3)
   end
 
   def authenticate_admin_to_root

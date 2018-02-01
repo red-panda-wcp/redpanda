@@ -16,7 +16,7 @@
 				<td><%= user.id %></td>
 				<td><%= user.lastname %>　<%= user.firstname %></td>
 				<td><%= user.address %><br><%= user.address2 %></td>
-				<td><%= user.phone %></td>
+				<td><%= user.phone %>-<%= user.phone2 %>-<%= user.phone3 %></td>
 				<td><%= user.active_i18n %></td>
 				<td><%= link_to "編集", edit_adminusers_to_users_path(user) %>　<%= link_to "削除", admin_user_path(user) ,method: :delete %></td>
 			</tr>

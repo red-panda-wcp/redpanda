@@ -8,7 +8,7 @@
     <span class="user_logo">郵便番号</span> 　<%= @user.postal_code %><br>
     <span class="user_logo">住所</span> 　<%= @user.address %><br>
     <span class="user_logo">建物名</span> 　<%= @user.address2 %><br>
-    <span class="user_logo">電話番号</span> 　<%= @user.phone %><br>
+    <span class="user_logo">電話番号</span> 　<%= @user.phone %>-<%= @user.phone2 %>-<%= @user.phone3 %><br>
 <!-- プロフィール編集&削除ボタン -->
     <%= link_to "退会する", users_destroy_path,method: :delete ,class: "square_btn2",data: { :confirm => "退会しますか？\n退会すると戻せませんのでご注意ください。"}%>
     <%= link_to "編集", edit_user_registration_path ,class: "square_btn1"%>
@@ -36,7 +36,7 @@
                   <div class="address-text">
                     【送付先情報】<br>
                     <p><%= h_history_first.history_address.postal_code%> <%= h_history_first.history_address.address %> <%= h_history_first.history_address.address2 %></p>
-                      名前 : <%= h_history_first.history_address.lastname%>  <%= h_history_first.history_address.firstname%>   (電話番号 : <%= h_history_first.history_address.phone%>) <br>
+                      名前 : <%= h_history_first.history_address.lastname%>  <%= h_history_first.history_address.firstname%>   (電話番号 : <%= h_history_first.history_address.phone%>-<%= h_history_first.history_address.phone2 %>-<%= h_history_first.history_address.phone3 %>) <br>
                   </div>
 
                   購入商品：<%= h_histories.size %>（購入点数：<%= h_histries_count %> ）<br>

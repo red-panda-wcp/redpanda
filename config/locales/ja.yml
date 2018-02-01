@@ -44,7 +44,9 @@ ja:
         postal_code: 郵便番号
         address: 住所
         address2: 建物/部屋番号
-        phone: 電話番号
+        phone: 電話番号1
+        phone2: 電話番号2
+        phone3: 電話番号3
         encrypted_password: パスワード(確認用)
 
         password_confirmation: パスワード(確認用)

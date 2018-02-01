@@ -8,6 +8,8 @@ one:
   kana_lastname: MyString
   kana_firstname: MyString
   phone: MyString
+  phone2: MyString
+  phone3: MyString
 
 two:
   postal_code: MyString
@@ -17,3 +19,5 @@ two:
   kana_lastname: MyString
   kana_firstname: MyString
   phone: MyString
+  phone2: MyString
+  phone3: MyString

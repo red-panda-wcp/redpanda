@@ -17,10 +17,12 @@
         <%= link_to 'REDPANDA',items_path %>
       </div>
       <div class="header-search">
-        <%= search_form_for @q,url: items_path do |f| %>
-          <%= f.search_field :artist_name_or_label_name_or_item_name_cont,class:"search_form" %>
-          <%= f.submit "search",class: 'record-form__submit-button' %><br><br>
-        <% end %>
+        <dl class="searchbox">
+          <%= search_form_for @q,url: items_path do |f| %>
+            <dt><%= f.text_field :artist_name_or_label_name_or_item_name_cont,placeholder: '検索するテキストを入力...' %></dt>
+            <dd><%= f.submit "search" , class: 'search-btn'%></dd>
+          <% end %>
+        </dl>
       </div>
       <div class="header-menu">
         <ul>
@@ -50,10 +52,11 @@
       </div>
     </div>
    </header>
-   <div class="stores_info">
-  送料一律540円　3,000円以上送料無料！！２/3まで！！
-  </div>
 
+   <br>
+   <div class="stores_info" id="move_adv">送料一律540円　3,000円以上送料無料！！</div>
+  <div class="<%= "#{@add_class}"%>-image clearfix">
+    <br>
    <%if flash[:notice]%>
      <div class="flash">　<!-- ログイン時のメッセージ格納 -->
        <%= flash[:notice] %>
@@ -68,5 +71,19 @@
       redpanda.com
   </footer>
   </div>
+  <script type="text/javascript">
+  $(function(){
+    setTimeout('move_adv()');
+  });
+
+  function move_adv() {
+    $('#move_adv').animate({
+        marginTop: '-=10px'
+    }, 800).animate({
+        marginTop: '+=10px'
+    }, 800);
+    setTimeout('move_adv()', 1600); //アニメーションを繰り返す間隔
+}
+  </script>
   </body>
 </html>

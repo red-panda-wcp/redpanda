@@ -32,8 +32,37 @@
 }
 
 .history-text{
+  width: 90%;
+  margin: 0 auto;
   font-size: 15px;
+  padding-left: 20px;
+  padding-top: 30px;
 }
+
+.address-text{
+  padding:15px 0;
+}
+
+.history_table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+
+  .history_table thead {
+      background-color: #c4bcbb4d;
+  }
+
+  .history_table th {
+      padding: 7px;
+      font-size: 12px;
+      font-weight: normal;
+      text-align: left;
+  }
+
+  .history_table td {
+      padding: 5px 5px 0;
+  }
 
 .address-text{
   padding:20px 0;
@@ -217,7 +246,9 @@ textarea {
 
 //===========================devise_common===========================
 .devise_errors {
-    padding-top: 10px;
+    padding-top: 20px;
+    color: #ff0000;
+    font-size: 14px;
 }
 
 .devise_errors ul {
@@ -235,10 +266,8 @@ textarea {
 }
 
 .form_name {
-    padding: 25px 0;
     font-weight: normal;
     color: #555;
-    border-bottom: 1px solid #ccc;
 }
 
 .form_style {
@@ -289,7 +318,6 @@ textarea {
 }
 
 .form {
-    border: 1px solid #ccc;
     border-radius: 6px;
     text-align: center;
     padding-bottom: 30px;
@@ -320,24 +348,8 @@ textarea {
     width: 400px;
     height: 500px;
     text-align: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin: 50px 0 0 -200px;
-    min-height: 100%;
-    position: relative;
-    height:auto !important; /*IE6対策*/
-    height: 100%; /*IE6対策*/
+    margin: 0 auto;
 }
-
-.form_signin {
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    width: 400px;
-    height: 400px;
-    text-align: center;
-}
-
 .link_space_signin {
     height: 100px;
     padding: 30px;

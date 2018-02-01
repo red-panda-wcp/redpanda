@@ -10,6 +10,7 @@
     <meta http-equiv="content-language" content="ja">
   </head>
   <body>
+  <div class="container">
 
    <header>
     <div class="<%= "#{@add_class}"%>-header clearfix">
@@ -59,16 +60,12 @@
        <%= flash[:notice] %>
      </div>
    <% end %>
-   <%if flash[:alert]%>
-     <div class="flash flash-alert">
-       <%= flash[:alert] %>
-     </div>
-   <% end %>
    <div class="container_all">
     <%= yield %>
    </div>
   <footer class="<%= "#{@add_class}-footer"%>">
       redpanda.com
   </footer>
+  </div>
   </body>
 </html>

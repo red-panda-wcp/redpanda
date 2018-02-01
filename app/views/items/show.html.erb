@@ -37,8 +37,8 @@
   <p class="title">ディスク<%= disc.disc_name %></p>
   <br>
 
-  <% disc.songs.each do |song| %>
-    <p class="disk-text"><%= song.number%>.　<%= song.song_name%></p>
+  <% disc.songs.order(:number).each do |song| %>
+    <p class="disk-text"><%= song.number %>.　<%= song.song_name%></p>
   <% end %>
 </div>
 <% end %>

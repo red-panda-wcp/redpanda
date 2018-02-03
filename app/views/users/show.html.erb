@@ -1,3 +1,12 @@
+   <%if flash%>
+   　<!-- ログイン時のメッセージ格納 -->
+      <% flash.each do |i,msg|%>
+       <div class="<%= "flash_#{i}"%> flash">
+         <%= msg %><br>
+       </div>
+      <% end %>
+   <% end %>
+
 <div class="user-box clearfix">
   <i class="fa fa-user-circle" aria-hidden="true"><p class="title1">ユーザー情報</p></i><br>
 <!-- ユーザー情報の一覧 -->

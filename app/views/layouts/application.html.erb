@@ -45,8 +45,10 @@
           <%= link_to new_user_registration_path do %>
             <li><i class="fa fa-user-circle" aria-hidden="true"></i> 会員登録</li>
             <% end %>
-            <li><%= link_to "管理者ログイン あとで消す", new_admin_session_path %> admin@admin.com(adminadmin)</li>
-            <li><%= link_to "管理者ユーザー作成 あとで消す", new_admin_registration_path %></li>
+            <div style="display: none">
+              <li><%= link_to "管理者ログイン あとで消す", new_admin_session_path %> admin@admin.com(adminadmin)</li>
+              <li><%= link_to "管理者ユーザー作成 あとで消す", new_admin_registration_path %></li>
+            </div>
           <% end %>
         </ul>
       </div>
@@ -57,11 +59,7 @@
    <div class="stores_info" id="move_adv">送料一律540円　3,000円以上送料無料！！</div>
   <div class="<%= "#{@add_class}"%>-image clearfix">
     <br>
-   <%if flash[:notice]%>
-     <div class="flash">　<!-- ログイン時のメッセージ格納 -->
-       <%= flash[:notice] %>
-     </div>
-   <% end %>
+
    <div class="container_all">
 
     <%= yield %>

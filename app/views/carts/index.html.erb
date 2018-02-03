@@ -1,8 +1,16 @@
+   <%if flash%>
+   　<!-- ログイン時のメッセージ格納 -->
+      <% flash.each do |i,msg|%>
+       <div class="<%= "flash_#{i}"%> flash">
+         <%= msg %><br>
+       </div>
+      <% end %>
+   <% end %>
 <p class="cart-top title"><i class="fa fa-shopping-cart fa_icon"></i><%= "#{current_user.lastname} #{current_user.firstname}" %>さんのカート内商品一覧</p><!--ここはまだ名前カラムをユーザーテーブルに作ってないのでメールで仮置きしてます-->
 
-  <% if flash[:n] %>
-    <div class="message1"><%= flash[:n] %></div>
-  <% end %>
+  <%# if flash[:n] %>
+    <!-- <div class="message1"><%= flash[:n] %></div> -->
+  <%# end %>
 
   <% if @carts.where(user_id:current_user.id).presence == nil %>
     <p>カートには何もありません</p>
@@ -28,6 +36,9 @@
                       <span>(売り切れ)</span>
                     <% else %>
                       <span>(在庫<%= cart.item.stock %>個)</span>
+                    <% end %>
+                    <% if cart.item.active != "display"%>
+                      <p style="color:red">この商品は販売停止中です。購入できません。削除してください。</p>
                     <% end %>
                     <%= form_for(cart, url: cart_path(cart.id), html: {method: 'PUT'}) do |f| %><!--商品の個数を変更するフォーム-->
                       <%= f.number_field :count ,min:0,max: cart.item.stock %>

@@ -13,21 +13,24 @@ class HistoryAddressesController < ApplicationController
         @history.price = cart.item.price#priceセット
         @history.history_address_id = @history_address.id#address_idセット
 
-        if cart.item.stock >= @history.count#商品の個数変更　もし在庫がカート内の個数よりも多ければ
+        if (@history.count != 0 && cart.item.active == "display" ) && (cart.item.stock >= @history.count)#商品の個数変更　もし在庫がカート内の個数よりも多ければ
           cart.item.stock -= @history.count
           if @history.save#履歴保存に成功した場合カートアイテムの更新
             cart.item.save
+            flash[:notice]= "ご購入ありがとうございます。発送までしばらくお待ち下さい。"
           else#履歴保存に失敗した場合、アラートを出す
-            flash[:alert] = "#{cart.item.artist_name}　#{cart.item.item_name}は購入できませんでした。"
+            flash["alert #{cart.id}"] = "「#{@history.item.item_name}」 #{@history.item.artist_name} :購入できませんでした。"
           end
+        elsif @history.count == 0
+          flash["alert #{cart.id}"] = "「#{@history.item.item_name}」 #{@history.item.artist_name} :購入数が 0 のため、購入しませんでした。"
+        elsif cart.item.active != "display"
+          flash["alert #{cart.id}"] = "「#{@history.item.item_name}」 #{@history.item.artist_name} :購入停止中の商品のため、購入できませんでした。"
         else
-          flash[:alert] = "#{cart.item.artist_name}　#{cart.item.item_name}は在庫数不足のため、購入できませんでした。"
+          flash["alert #{cart.id}"] = "「#{@history.item.item_name}」 #{@history.item.artist_name} :購入できませんでした。ご確認ください。"
         end
-    end# 履歴へカートの情報を登録　ここまで
+      end# 履歴へカートの情報を登録　ここまで
 
     @carts.destroy_all#カート内削除
-    flash[:notice] = "ご購入ありがとうございます。発送までしばしお待ち下さい。"
-
     redirect_to users_path
   end
 

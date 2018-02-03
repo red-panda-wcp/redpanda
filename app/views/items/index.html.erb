@@ -1,3 +1,12 @@
+   <%if flash%>
+   　<!-- ログイン時のメッセージ格納 -->
+      <% flash.each do |key,msg|%>
+       <div class="flash_<%= key%> flash">
+         <%= msg %><br>
+       </div>
+      <% end %>
+   <% end %>
+
 <h1>CD一覧</h1>
 <% if admin_signed_in? %>
 	<%=link_to("カテゴリー編集",categories_path)%>
@@ -9,7 +18,6 @@
 			<p>検索語句：　<%= params[:q][:artist_name_or_label_name_or_item_name_cont] %></p>
 		</div>
 		<% end %>
-
 		<table class="item_index_box">
 
 			<% @items.each do |item| %>
